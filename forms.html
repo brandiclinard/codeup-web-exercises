@@ -39,14 +39,11 @@ information being submitted in the URL-->
         <input type="radio" name="answer4">other
         <br>
     <h3>What web browser are you using?</h3>
-        <input id="explorer" name="explorer" value="true" type="checkbox">
-        <label for="explorer">Internet Explorer</label>
-        <br>
-        <input id="chrome" name="chrome" value="true" type="checkbox">
-        <label for="chrome">Google Chrome</label>
-        <br>
-        <input id="firefox" name="firefox" value="true" type="checkbox">
-        <label for="firefox">FireFox</label>
+        <select name="browser_use">
+            <option value="chrome">Google Chrome</option>
+            <option value="firefox">FireFox</option>
+            <option value="explorer">Internet Explorer</option>
+        </select>
     <br>
     <button type="submit">Submit Answers Here</button>
 </section>
