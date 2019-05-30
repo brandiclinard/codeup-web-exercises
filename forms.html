@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+</head>
+<header>
+    <h2>Register With Us</h2>
+</header>
+<body>
+<form method="POST" action="https://www.elformo.com/forms/29dc7fc3-9fc4-4009-83c8-ef01fbcabbc7">
+<!--With "POST" method- everything submits and you are able to see (at the action site)
+all of the information that was input. With the "GET" method- shows the query; shows all
+information being submitted in the URL-->
+<section>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="email" placeholder="email address">
+    <br>
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password" placeholder="password">
+    <br>
+<!--When you remove the name attributes, you are not able to send the information to the action site.
+ No information is being sent. When you remove the ID for something it still posts but it shows an error
+ in the code-unresolved id attributes.--->
+</section>
+    <hr>
+<section>
+    <textarea name="bio" placeholder="Write a little about yourself" rows="10" cols="30"></textarea>
+</section>
+    <hr>
+<section>
+    <h3>How did you hear about us?</h3>
+        <input type="radio" name="answer1">billboard
+        <br>
+        <input type="radio" name="answer2">radio advertisement
+        <br>
+        <input type="radio" name="answer3">internet advertisement
+        <br>
+        <input type="radio" name="answer4">other
+        <br>
+    <h3>What web browser are you using?</h3>
+        <input id="explorer" name="explorer" value="true" type="checkbox">
+        <label for="explorer">Internet Explorer</label>
+        <br>
+        <input id="chrome" name="chrome" value="true" type="checkbox">
+        <label for="chrome">Google Chrome</label>
+        <br>
+        <input id="firefox" name="firefox" value="true" type="checkbox">
+        <label for="firefox">FireFox</label>
+    <br>
+    <button type="submit">Submit Answers Here</button>
+</section>
+</form>
+<!--If there are different name values then you can select multiple answers at the same time.
+If the name value is the same for all then you can only select one answer at a time.-->
+</body>
+</html>
