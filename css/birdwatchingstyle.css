@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    width: 70%;
+    width: 100%;
     min-width: 800px;
     margin: 0 auto;
 }
@@ -81,6 +81,7 @@ nav {
     height: 50px;
     flex: 100%;
     display: flex;
+    background-color:limegreen;
 }
 
 nav ul {
@@ -115,22 +116,40 @@ main {
 
 article, section {
     flex: 4;
+    background-color: limegreen;
 }
 
-aside {
+.aside {
     flex: 1;
     margin-left: 10px;
     padding: 1%;
+
 }
 
-aside a {
+#a {
     display: block;
     float: left;
-    width: 50%;
+    width:250px;
+    height: 500px;
+    background-color:limegreen;
 }
 
-aside img {
-    max-width: 100%;
+.column{
+    position: relative;
+    float: right;
+
+}
+
+.column {
+    float:right;
+    width:47%;
+    padding: 5px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 footer {
