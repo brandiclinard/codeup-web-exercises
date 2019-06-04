@@ -89,22 +89,51 @@ a {
     color: var(--main-link-color);
 }
 
-.profile-details {
-    margin: 0 .5em 0 .5em;
-    width: calc(25% - .5em);
-    float: left;
-}
-.timeline {
-    margin: 0 .5em 0 .5em;
-    width: calc(50% - .5em);
-    float: left;
+/*.profile-details {*/
+/*    margin: 0 .5em 0 .5em;*/
+/*    width: calc(25% - .5em);*/
+/*    position: relative;*/
+/*    float: left;*/
+/*}*/
+/*.timeline {*/
+/*    margin: 0 .5em 0 .5em;*/
+/*    width: calc(50% - .5em);*/
+/*    postion: relative;*/
+/*    float: left;*/
 
+/*}*/
+/*who-to-follow {*/
+/*    margin: 0 .5em 0 .5em;*/
+/*    width: calc(25% - .5em);*/
+/*    position: relative;*/
+/*    float: left;*/
+/*}*/
+
+.column {
+    position: relative;
 }
-who-to-follow {
+
+#one {
+    float:left;
+    width: calc(25% - 1em);
     margin: .5em;
-    width: calc(25% - .5em);
-    float: right;
 }
+#two {
+    float: left;
+    width: calc(50% - 1em);
+    margin: .5em;
+}
+#three {
+    float: left;
+    width:calc(25% - 1em);
+    margin: .5em;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 .container {
     margin: 2em;
     overflow: auto;
@@ -114,6 +143,7 @@ who-to-follow {
     background: var(--light-bg);
     border-bottom: 1px solid var(--separator-color);
     padding: .5em;
+    overflow: auto;
 }
 .media-image {
     max-width: 50px;
