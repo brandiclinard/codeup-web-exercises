@@ -65,6 +65,9 @@ a {
     font-weight: bold;
     padding: 8px;
     border-radius: 5px;
+    margin: 0;
+    position: center;
+
 
 }
 .btn-large {
@@ -72,7 +75,7 @@ a {
     padding: 10px;
     position: absolute;
     top: 290px;
-    right: 0px;
+    right: 0;
 }
 .img-circle {
     border-radius: 100%;
@@ -158,6 +161,6 @@ a {
     margin:.5em;
 }
 .profile-items {
-    bullet-style:none;
+    list-style-type:none;
     padding: 0;
 }
