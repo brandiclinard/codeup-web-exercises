@@ -1,0 +1,44 @@
+body {
+    box-sizing: border-box;
+    margin: 10px auto;
+    width: 80%;
+    max-width: 1200px;
+    display: grid;
+}
+
+.row {
+    width:100%;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.column.one-eighth {
+    width: calc(12.5% - 22px);
+}
+
+.column.one-sixth {
+    width: calc(16.66% - 22px);
+}
+
+.column.one-fourth {
+    width: calc(25% - 22px);
+}
+
+.column.one-third {
+    width: calc(33.33% - 22px);
+}
+
+.column.one-half {
+    width: calc(50% - 22px);
+}
+
