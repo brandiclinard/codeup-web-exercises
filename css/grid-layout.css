@@ -21,6 +21,9 @@ body {
     padding: 10px;
     border: 1px solid black;
 }
+.column.two-third {
+    width: calc(66.66% - 22px);
+}
 
 .column.one-eighth {
     width: calc(12.5% - 22px);
@@ -42,3 +45,24 @@ body {
     width: calc(50% - 22px);
 }
 
+.column.three-eighth {
+    width: calc(37.5% - 22px);
+}
+
+.column.two-fourth {
+    width: calc(50% - 22px);
+}
+
+.column.three-sixth {
+    width: calc(50% - 22px);
+}
+
+.column.offset-one-half {
+    width: calc(50% - 22px);
+    margin-left:25%;
+}
+
+.column.offset-one-third {
+    width: calc(33.33% - 22px);
+    margin-left: 16.66%;
+}
