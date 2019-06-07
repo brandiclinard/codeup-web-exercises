@@ -57,5 +57,32 @@ hr {
 }
 .label-title {
     background-color: rgb(243, 243, 243);
+}
 
+.button-bar {
+    background-color: rgb(243, 243, 243);
+}
+
+.list-group-item {
+    background-color:rgb(218, 237, 243);
+    color: rgb(88, 139, 165);
+}
+
+.dropdown-toggle {
+    background-color:white;
+    color: black;
+}
+
+.choice {
+    background-color:rgb(218, 237, 243);
+    color: rgb(88, 139, 165);
+    margin-bottom: 0;
+}
+
+.dropdown {
+    background-color:rgb(218, 237, 243);
+}
+
+.box {
+    background-color:rgb(218, 237, 243);
 }
