@@ -124,48 +124,63 @@
             <p class="sentence py-2 pl-3">Choose cheese & sauce</p>
         </div>
         <div class="card hand-tossed mx-3">
-            <p class="label-title mb-0 py-2 pl-2">Cheese?</p>
-            <p class="choice  p-1">Cheese
-            <div class="dropdown">
-                <div class="mx-3 ">
-                    <button class="btn btn-secondary btn-block text-left dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   Light
-                </button>
+            <p class="label-title mb-0 py-2 pl-2">Cheese</p>
+                <div class="cheesebox pb-3">
+                    <p class="choice p-1">How Much?</p>
+                    <div class="dropdown mt-1">
+                        <div class="mx-3 ">
+                            <button class="btn btn-secondary btn-block text-left dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           Light
+                        </button>
+                        </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button">Light</button>
+                            <button class="dropdown-item" type="button">Normal</button>
+                            <button class="dropdown-item" type="button">Extra</button>
+                            <button class="dropdown-item" type="button">Double</button>
+                        </div>
+                    </div>
                 </div>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <button class="dropdown-item" type="button">Light</button>
-                    <button class="dropdown-item" type="button">Normal</button>
-                    <button class="dropdown-item" type="button">Extra</button>
-                    <button class="dropdown-item" type="button">Double</button>
+        </div>
+        <div class="card hand-tossed my-3 mx-3">
+            <p class="label-title mb-0 py-2 pl-2">Sauce</p>
+            <div class="cheesebox pb-3">
+                <p class="choice p-1">What Type?</p>
+                <div class="dropdown mt-1">
+                    <div class="mx-3 ">
+                        <button class="btn btn-secondary btn-block text-left dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Tomato Sauce
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">Tomato Sauce</button>
+                        <button class="dropdown-item" type="button">Marinara Sauce</button>
+                        <button class="dropdown-item" type="button">BBQ Sauce</button>
+                        <button class="dropdown-item" type="button">Alfredo Sauce</button>
+                    </div>
                 </div>
             </div>
-            </p>
-        </div>
-        <div class="card crispy-thin mx-3 my-3">
-            <p class="label-title py-2 pl-2">Crispy Thin</p>
-            <p class="py-2 pl-2">Thin enough for optimum crispy to crunchy ratio.</p>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="medium" id="mediumcrispy" value="option3">
-                        <label class="form-check-label" for="mediumcrispy">
-                            Medium (12")
-                        </label>
-                    </div></li>
-                <li class="list-group-item">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="large" id="large" value="option4">
-                        <label class="form-check-label" for="large">
-                            Large (14")
-                        </label>
-                    </div></li>
-            </ul>
+            <div class="cheesebox pb-3">
+                <p class="choice p-1">How Much?</p>
+                <div class="dropdown mt-1">
+                    <div class="mx-3 ">
+                        <button class="btn btn-secondary btn-block text-left dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Normal
+                        </button>
+                    </div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button">Light</button>
+                        <button class="dropdown-item" type="button">Normal</button>
+                        <button class="dropdown-item" type="button">Extra</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="button-bar py-2">
             <div class="text-right">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary">< Previous Step</button>
                 <button type="button" class="btn btn-primary mr-3">Next Step ></button>
-            </div>
-        </div>
     </div>
 
 <!--script-->

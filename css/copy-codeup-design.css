@@ -1,0 +1,82 @@
+.topbar {
+    background-color: #f0f0f0;
+    height:100px;
+}
+.midbar {
+    background-color:white;
+    height:60px;
+}
+.contentbar {
+    background-color: #f0f0f0;
+    font-family: 'Abel', sans-serif;
+    font-size: 64px;
+}
+.logo {
+    height: 105px;
+    width: 105px;
+    z-index: 1000;
+    position: relative;
+    margin-top: -20px;
+}
+.row {
+    background: #f0f0f0;
+    color: black;
+}
+.nav-link {
+    color: black;
+    font-family: 'Abel', sans-serif;
+    font-size: 28px;
+}
+.badge-secondary {
+    height: 225px;
+    width: 225px;
+    border:15px solid white;
+    font-size:48px;
+    font-family: 'Anton', sans-serif;
+}
+
+.badge-design {
+    background: #E6563B;
+}
+
+.badge-develop {
+    background: #EB9D3A;
+}
+
+.badge-support {
+    background:#7cb06c;
+}
+.badge-host {
+    background:#00aba9;
+}
+
+.apple-ipad {
+    border: 15px solid #e6e6e6;
+    border-radius: 10px;
+}
+.badge-small {
+    height: 18px;
+    width: 18px;
+    margin: 5px;
+    font-family: 'Anton', sans-serif;
+}
+.work {
+    font-family: 'Abel', sans-serif;
+    font-size: 32px;
+}
+.featured {
+    font-family: 'Abel', sans-serif;
+    font-size: 32px;
+}
+h1 {
+    font-family: 'Anton', sans-serif;
+    font-size: 72px;
+}
+h2 {
+    font-family: 'Anton', sans-serif;
+}
+.park {
+    font-family: 'Anton', sans-serif;
+    font-size: 48px;
+}
+

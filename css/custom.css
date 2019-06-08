@@ -73,10 +73,10 @@ hr {
     color: black;
 }
 
-.choice {
+.cheesebox {
     background-color:rgb(218, 237, 243);
     color: rgb(88, 139, 165);
-    margin-bottom: 0;
+    border:1px solid lightgray;
 }
 
 .dropdown {
@@ -85,4 +85,8 @@ hr {
 
 .box {
     background-color:rgb(218, 237, 243);
+}
+
+.btn {
+    border:1px solid darkgrey;
 }
