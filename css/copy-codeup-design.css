@@ -28,10 +28,10 @@
     font-size: 28px;
 }
 .badge-secondary {
-    height: 225px;
-    width: 225px;
-    border:15px solid white;
-    font-size:48px;
+    height: 105px;
+    width: 105px;
+    border:5px solid white;
+    font-size:28px;
     font-family: 'Anton', sans-serif;
 }
 
@@ -50,7 +50,7 @@
     background:#00aba9;
 }
 
-.apple-ipad {
+.pict {
     border: 15px solid #e6e6e6;
     border-radius: 10px;
 }
@@ -60,6 +60,7 @@
     margin: 5px;
     font-family: 'Anton', sans-serif;
 }
+
 .work {
     font-family: 'Abel', sans-serif;
     font-size: 32px;
@@ -79,4 +80,39 @@ h2 {
     font-family: 'Anton', sans-serif;
     font-size: 48px;
 }
-
+hr{
+    margin-left: 5%;
+    width: 90%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: #f0f0f0;
+}
+.smallpic {
+    width: 25%;
+    height: auto;
+}
+h6 {
+    font-family: 'Anton', sans-serif;
+    font-size: 14px;
+    float: left;
+}
+.push {
+    position: absolute;
+    bottom: 35px;
+    left: 15px;
+}
+.push2 {
+    position: absolute;
+    top: -80px;
+    left: 15px;
+}
+.tweet {
+    font-size: 12px;
+}
+.twitter {
+    width: 10%;
+    height: auto;
+}
+.third {
+    position: center;
+}
