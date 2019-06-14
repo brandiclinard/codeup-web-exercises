@@ -183,27 +183,22 @@
  * return value.
  */
 
-// function calculateTotal(luckyNumber, totalBill){
-//     if (luckyNumber === 0){
-//         var noDiscount = (totalBill * 0);
-//         return noDiscount;
-//     } else if (luckyNumber === 1) {
-//         var discount10 = (totalBill - (totalBill * 0.10));
-//         return discount10;
-//     } else if (luckyNumber === 2) {
-//         var discount25 = (totalBill - (totalBill * 0.25));
-//         return discount25;
-//     } else if (luckyNumber === 3) {
-//         var discount35 = (totalBill - (totalBill * 0.35));
-//         return discount35;
-//     } else if (luckyNumber === 4) {
-//         var discount50 = (totalBill - (totalBill * 0.50));
-//         return discount50;
-//     } else if (luckyNumber === 5) {
-//         var discountFree = (totalBill - totalBill);
-//         return discountFree;
-//     }
-// }
+function calculateTotal(luckyNumber, totalBill){
+    if (luckyNumber === 0){
+        return (totalBill * 0);
+    } else if (luckyNumber === 1) {
+        return (totalBill - (totalBill * 0.10));
+    } else if (luckyNumber === 2) {
+        return (totalBill - (totalBill * 0.25));
+    } else if (luckyNumber === 3) {
+        return (totalBill - (totalBill * 0.35));
+    } else if (luckyNumber === 4) {
+        return (totalBill - (totalBill * 0.50));
+    } else if (luckyNumber === 5) {
+       return (totalBill - totalBill);
+    }
+}
+
 
 
 /**
@@ -217,12 +212,14 @@
 // Generate a random number between 0 and 6
 
 
-    // var luckyNumber = Math.floor(Math.random() * 6);
-    //
-    // var totalBill = Number(prompt("What was your total bill?"));
-    //
-    // var newBill = calculateTotal(luckyNumber, totalBill);
-    //
-    // alert("Your lucky number was " + luckyNumber + "! Lets see if you get a discount. Your total bill before hand was $" + totalBill + " and now your bill is $" + newBill + "!!!");
+    var luckyNumber = Math.floor(Math.random() * 6);
+
+    var totalBill = Number(prompt("What was your total bill?"));
+
+    var newBill = calculateTotal(luckyNumber, totalBill);
+
+    console.log(calculateTotal(luckyNumber, totalBill));
+
+    alert("Your lucky number was " + luckyNumber + "! Lets see if you get a discount. Your total bill before hand was $" + totalBill + " and now your bill is $" + newBill + "!!!");
 
 }());
