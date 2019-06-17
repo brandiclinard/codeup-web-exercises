@@ -36,7 +36,22 @@
 // }
 
 
+// Walkthrough notes:
 
+    // if (play === true) {
+    //     var userNumber = Number(prompt("give me a number"));
+    //     if (isNaN(userNumber) === false) {
+    //         alert((userNumber % 2 === 0) ? "That number is even." : "That number is odd.");
+    //         alert(userNumber + " plus 100 is " + (userNumber +100));
+    //         if (userNumber < 0) {
+    //             alert('that number is negative');
+    //         }else{
+    //             alert('that number is positive');
+    //         }
+    //     }
+    // }
+
+    // can build out functions to indicate and use within in the if/else to indicate pos/neg to call on
 
 /* ########################################################################## */
 
@@ -69,34 +84,36 @@
 // function analyzeColor(a){
 //     if ('red'){
 //         alert('Apples are red.');
-//         console.log('Apples are red.');
+//         return 'Apples are red.';
 //     } else if ('orange') {
 //         alert('Obviously the fruit oranges are orange.');
-//         console.log('Obviously the fruit oranges are orange.');
+//         return 'Obviously the fruit oranges are orange.';
 //     } else if ('yellow') {
 //         alert("Don't eat the yellow snow.");
-//         console.log("Don't eat the yellow snow.");
+//         return "Don't eat the yellow snow.";
 //     } else if ('green') {
 //         alert("The grass and trees are usually green when healthy.");
-//         console.log("The grass and trees are usually green when healthy.");
+//         return "The grass and trees are usually green when healthy.";
 //     } else if ('blue') {
 //         alert("The ocean is blue.");
-//         console.log("The ocean is blue.");
+//         return "The ocean is blue.";
 //     } else if ('indigo') {
 //         alert("Native Americans used to make indigo paint for use on carcass canvas.");
-//         console.log("Native Americans used to make indigo paint for use on carcass canvas.");
+//         return "Native Americans used to make indigo paint for use on carcass canvas.";
 //     } else if ('violet') {
 //         alert("Isn't violet the same color as purple?");
-//         console.log("Isn't violet the same color as purple?");
+//         return "Isn't violet the same color as purple?";
 //     } else {
 //         alert("The color " + a + " is not listed on our analyzer at this time.");
-//         console.log("The color " + a + " is not listed on our analyzer at this time.");
+//         return "The color " + a + " is not listed on our analyzer at this time.";
 //     }
 // }
 //
 // console.log(analyzeColor(a));
 
+//***********Walkthrough notes:
 
+    //diffetence: only returns instead of alert and console.log
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
@@ -110,44 +127,47 @@
  * Refactor your above function to use a switch-case statement
  */
 
-// function analyzeColor(a){
-//     switch(a) {
-//         case 'red':
-//             alert('Apples are red.');
-//             console.log('Apples are red.');
-//             break;
-//         case 'orange':
-//             alert('Obviously the fruit oranges are orange.');
-//             console.log('Obviously the fruit oranges are orange.');
-//             break;
-//         case 'yellow':
-//             alert("Don't eat the yellow snow.");
-//             console.log("Don't eat the yellow snow.");
-//             break;
-//         case 'green':
-//             alert("The grass and trees are usually green when healthy.");
-//             console.log("The grass and trees are usually green when healthy.");
-//             break;
-//         case 'blue':
-//             alert("The ocean is blue.");
-//             console.log("The ocean is blue.");
-//             break;
-//         case 'indigo':
-//             alert("Native Americans used to make indigo paint for use on carcass canvas.");
-//             console.log("Native Americans used to make indigo paint for use on carcass canvas.");
-//             break;
-//         case 'violet':
-//             alert("Isn't violet the same color as purple?");
-//             console.log("Isn't violet the same color as purple?");
-//             break;
-//         default:
-//             alert("The color " + a + " is not listed on our analyzer at this time.");
-//             console.log("The color " + a + " is not listed on our analyzer at this time.");
-//             break;
-//     }
-// }
-//
-// console.log(analyzeColor(randomColor));
+function analyzeColor(a){
+    switch(a) {
+        case 'red':
+            alert('Apples are red.');
+            return 'Apples are red.';
+            break;
+        case 'orange':
+            alert('Obviously the fruit oranges are orange.');
+            return 'Obviously the fruit oranges are orange.';
+            break;
+        case 'yellow':
+            alert("Don't eat the yellow snow.");
+            return  "Don't eat the yellow snow.";
+            break;
+        case 'green':
+            alert("The grass and trees are usually green when healthy.");
+            return "The grass and trees are usually green when healthy.";
+            break;
+        case 'blue':
+            alert("The ocean is blue.");
+            return "The ocean is blue.";
+            break;
+        case 'indigo':
+            alert("Native Americans used to make indigo paint for use on carcass canvas.");
+            return "Native Americans used to make indigo paint for use on carcass canvas.";
+            break;
+        case 'violet':
+            alert("Isn't violet the same color as purple?");
+            return "Isn't violet the same color as purple?";
+            break;
+        default:
+            alert("The color " + a + " is not listed on our analyzer at this time.");
+            return "The color " + a + " is not listed on our analyzer at this time.";
+            break;
+    }
+}
+
+console.log(analyzeColor(randomColor));
+
+    //********WALKTHROUGH NOTES:
+    //UTILIZE THE RETURN INSTEAD OF CONSOLE.LOG and utilize return messages
 
 /**
  * TODO:
@@ -183,23 +203,40 @@
  * return value.
  */
 
-function calculateTotal(luckyNumber, totalBill){
-    if (luckyNumber === 0){
-        return (totalBill * 0);
-    } else if (luckyNumber === 1) {
-        return (totalBill - (totalBill * 0.10));
-    } else if (luckyNumber === 2) {
-        return (totalBill - (totalBill * 0.25));
-    } else if (luckyNumber === 3) {
-        return (totalBill - (totalBill * 0.35));
-    } else if (luckyNumber === 4) {
-        return (totalBill - (totalBill * 0.50));
-    } else if (luckyNumber === 5) {
-       return (totalBill - totalBill);
-    }
-}
+// function calculateTotal(luckyNumber, totalBill){
+//     if (luckyNumber === 0){
+//         return (totalBill * 0);
+//     } else if (luckyNumber === 1) {
+//         return (totalBill - (totalBill * 0.10));
+//     } else if (luckyNumber === 2) {
+//         return (totalBill - (totalBill * 0.25));
+//     } else if (luckyNumber === 3) {
+//         return (totalBill - (totalBill * 0.35));
+//     } else if (luckyNumber === 4) {
+//         return (totalBill - (totalBill * 0.50));
+//     } else if (luckyNumber === 5) {
+//        return (totalBill - totalBill);
+//     }
+// }
 
+//******* walkthrough notes: switch statement utilized due to having only one thing being manipulated.
 
+    // function calculateTotal(luckNum, initialTotal) {
+    //     switch (luckNum) {
+    //         case 0:
+    //             return initialTotal;
+    //         case 1:
+    //             return initialTotal * 0.9;
+    //         case 2:
+    //             return initialTotal * 0.75;
+    //         case 3:
+    //             return initialTotal * 0.65;
+    //         case 4:
+    //             return initialTOtal * 0.5;
+    //         default:
+    //             return 0;
+    //     }
+    // }
 
 /**
  * TODO:
@@ -212,14 +249,18 @@ function calculateTotal(luckyNumber, totalBill){
 // Generate a random number between 0 and 6
 
 
-    var luckyNumber = Math.floor(Math.random() * 6);
+    // var luckyNumber = Math.floor(Math.random() * 6);
+    //
+    // var totalBill = Number(prompt("What was your total bill?"));
+    //
+    // var newBill = calculateTotal(luckyNumber, totalBill);
+    //
+    // console.log(calculateTotal(luckyNumber, totalBill));
+    //
+    // alert("Your lucky number was " + luckyNumber + "! Lets see if you get a discount. Your total bill before hand was $" + totalBill + " and now your bill is $" + newBill + "!!!");
 
-    var totalBill = Number(prompt("What was your total bill?"));
 
-    var newBill = calculateTotal(luckyNumber, totalBill);
-
-    console.log(calculateTotal(luckyNumber, totalBill));
-
-    alert("Your lucky number was " + luckyNumber + "! Lets see if you get a discount. Your total bill before hand was $" + totalBill + " and now your bill is $" + newBill + "!!!");
+    // ******* WALKTHROUGH NOTES:
+    //UTILIZING CALCULATETOTAL(LUCKYNUMBER,TOTALBILL) INSTEAD OF JUST CALCULATETOTAL WILL INPUT THE INFORMATION GAINED IN THE FUNCTION.
 
 }());
