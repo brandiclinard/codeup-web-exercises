@@ -605,6 +605,9 @@
     //
     // alert('game over');
 
+    /********* ARRAY NOTES ************/
+
+    //refer to notes saved from David.
 
 
 
