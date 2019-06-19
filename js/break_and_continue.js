@@ -16,7 +16,7 @@
 //
 // } while (numPick <= 50);
 
-
+//need to add caps for min and max number of 1-50; add else if for stipulations and another alert. need to add stipulations for string as well.
 
 /************  Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
  Your output should look like this:
