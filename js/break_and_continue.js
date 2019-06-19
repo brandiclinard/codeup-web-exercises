@@ -51,20 +51,33 @@
  Here is an odd number: 49
  ****/
 
-// var numPick = prompt('Pick an odd number between 1 and 50.');
-//     var n = 0;
+var numPick = Number(prompt('Pick an odd number between 1 and 50.'));
+    var n = 0;
+            var oddNum;
 //     do {
-//         n++;
-//         if (n % 2 !== 0) {
-//             var oddNum = n;
+//
+//         if ((n % 2 !== 0) && ((numPick < 50) || (numPick > 1))) {
+//             n++;
 //             console.log("Here is an odd number: " + n);
-//             if (oddNum == numPick){
-//                 console.log('Skipping this number: ' + numPick)
-//             }
+//             continue;
+//         }else if (oddNum === numPick){
+//             console.log('Skipping this number: ' + numPick);
+//         }else{
+//             alert('You did not enter an odd number between 1 and 50.');
+//             Number(prompt('Pick an odd number between 1 and 50.'));
 //         }
-//         continue;
+//
 // } while (n < 50);
 
-
+for (n = 0; n < 50; n++){
+    if ((n % 2 !== 0)){
+        console.log("Here is an odd number:" + n);
+    // }else{
+    //     alert('You did not enter an odd number between 1 and 50.');
+    }
+    for (numPick; n < 50;n++){ numPick === n;
+        console.log("Skipping this number: " + numPick);
+    }
+}
 
 }());
