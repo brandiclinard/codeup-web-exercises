@@ -61,24 +61,26 @@
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
 
-    function firstElement(names){
-        return names[0];
+    function firstElement(array){
+        return array[0];
     }
 
     console.log(firstElement(names));
 
 
-    function secondElement(names){
-        return names[1];
+    function secondElement(array){
+        return array[1];
     }
 
     console.log(secondElement(names));
 
-    function lastElement(names){
-        var total = (names.length) - 1;
-        return names[total];
+    function lastElement(array){
+        var total = (array.length) - 1;
+        return array[total];
     }
 
     console.log(lastElement(names));
 
 })();
+
+//EXERCISE COMPLETE- NO WALK THROUGH NOTES DUE TO CODE BEING IDENTICAL TO WHAT WAS SHOWN
