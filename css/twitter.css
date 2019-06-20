@@ -113,26 +113,7 @@ a {
 .text-muted {
     color: var(--main-link-color);
 }
-/*.profile-details {*/
-/*    margin: 0 .5em 0 .5em;*/
-/*    width: calc(25% - .5em);*/
-/*    position: relative;*/
-/*    float: left;*/
-/*}*/
-/*.timeline {*/
-/*    margin: 0 .5em 0 .5em;*/
-/*    width: calc(50% - .5em);*/
-/*    postion: relative;*/
 
-/*    float: left;*/
-/*}*/
-/*who-to-follow {*/
-/*    margin: 0 .5em 0 .5em;*/
-/*    width: calc(25% - .5em);*/
-/*    position: relative;*/
-/*    float: left;*/
-
-/*}*/
 
 .column {
     position: relative;
@@ -185,3 +166,5 @@ a {
     float: left;
     width: calc(100% - 50px);
 }
+
+/*BASIC CONCEPTS COMPLETE. CAN GO BACK AND ADD MARGIN SPACING AND HEADER PHOTO*/
