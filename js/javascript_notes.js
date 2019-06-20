@@ -662,5 +662,144 @@
 //
 // console.log(removeAtIndex(grouped array, grouped array.indexOf('index')))
 
+
+    /************* OBJECT NOTES *****************/
+
+    //-- CREATING AN OBJECT:
+     //-- var myObject = {
+    //             value: true,
+    //             number: 3,
+    //             myString:'hello world',
+    //             sayHello: function() {
+    //     console.log('hello!');
+    // },
+    // }
+
+            // myObject.sayHello();
+    //
+    // physical example:
+    // var macBook = {
+    //     size; 13,
+    //     color 'silver',
+    //     memory: 999,
+    //     owner: {
+    //         first_name: "first"
+    //         last_name: "last"
+    //
+    // },
+    //
+    // }
+
+    //-- can use functions inside of objects... either build one or call one from the scope of the script at that time.
+
+    //-- join and split WILL NOT ALTER THE ORIGINAL WITHIN AN OBJECT
+    //-- this keyword is in reference to the current object. Utilize by this.propertyWithinTheObject to call forth.
+
+    //creating Arrays of Objects
+
+    // var cups = [
+    //         {
+    //             type: 'cup',
+    //             color: 'green',
+    //             message: function (){
+    //                 console.log("I'm all good");
+    //             }
+    //         },
+    //         {
+    //             type: 'cup',
+    //             color:'yellow'
+    //             message: function (){
+    //                 console.log("I'm working");
+    //             }
+    //         },
+    //         {
+    //             type: 'cup',
+    //             color: 'red',
+    //             message: function (){
+    //                 console.log("I need help");
+    //             }
+    //         }
+    //
+    //         ];
+
+    //--SPONGEBOB GAME CHARACTERS
+
+    function spongeBob(){
+        return "I'm ready!";
+    }
+
+    function patrick (){
+        return "No, this is Patrick";
+    }
+
+    function mrKrabs(){
+        return "moneymoneymoney";
+    }
+
+    function squidward(){
+        return "SQUILLIAMMMMM";
+    }
+
+    var chooseYourFighter = [
+        {
+            name:{
+                first: "Spongebob",
+                last: "Squarepants"
+            },
+            weapon: 'Spatula',
+            greeting: spongeBob(),
+            attacks: ['Bubble Buddy', "Karate", "Jellyfishing"]
+        },
+        {
+            name:{
+                first: "Patrick",
+                last: "Star"
+            },
+            weapon: 'Mayonnaise',
+            greeting: patrick(),
+            attacks: ["Secret Picture", "Rock", "Imagination"]
+        },
+        {
+            name:{
+                first: "Eugene",
+                last: "Krabs"
+            },
+            weapon: 'Secret Formula',
+            greeting: mrKrabs(),
+            attacks: ["Take Money", "Count Money", "Hide Money"]
+        },
+        {
+            name:{
+                first: "Squidward",
+                last: "Tentacles"
+            },
+            weapon: 'Clarinet',
+            greeting: squidward(),
+            attacks: ["Yell at Spongebob", "Off Pitch", "Interperative Dance"]
+        }
+    ];
+
+    // TO SHOW WHAT EACH FIGHTER CAN DO 'TABLE'
+
+    //-- EACH 'FIGHTER' IS AN ELEMENT IN THE ARRAY - WHICH IS AN OBJECT
+    //-- LOG OUT EACH FIGHTER'S FIRST NAME + MESSAGE
+    //-- LOOK AT CURRENT FIGHTER'S ATTACKS (WHEN LOOPING THROUGH EACH) BY FOREACH
+    //-- LOG OUT EACH ATTACK FOR EACH FIGHTER
+    //-- ADDED LINE FOR SEPARATION OF CHARACTERS
+
+    chooseYourFighter.forEach(function(fighter){
+        console.log(fighter.name.first + "'s attacks are:");
+        fighter.attacks.forEach(function(attack){
+            console.log(attack);
+        });
+        console.log("-----------");
+    });
+
+    //-- CAN FIND THE CHARACTERS BY CHOOSEYOURFIGHTER[].NAME.FIRST
+
+    //--CAN CHOOSE YOUR FIGHTER[].GREETING TO SEE WHAT THEY SAY
+
+    //--
+
 //    this is the end of the IFFE below
 })();
