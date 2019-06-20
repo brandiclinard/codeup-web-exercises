@@ -1,5 +1,7 @@
 "use strict";
 
+//MY CODE
+
 console.log('"Hello from external JavaScript"');
 
 alert('Welcome to my Website!');
@@ -18,6 +20,8 @@ Use an alert to show the results of each problem.*/
 they love it), and Hercules (1 day, you don't know yet if they're going to like it). If price for a
 movie per day is $3, how much will you have to pay?*/
 
+//MY CODE
+
 var LittleMermaid = Number(prompt('How many days would you like to rent The Little Mermaid?'));
 
 var BrotherBear = Number(prompt('How many days would you like to rent Brother Bear?'));
@@ -25,6 +29,8 @@ var BrotherBear = Number(prompt('How many days would you like to rent Brother Be
 var Hercules = Number(prompt('How many days would you like to rent Hercules?'));
 
 var MoviePayment = (LittleMermaid + BrotherBear + Hercules) * 3;
+
+// FIRST ROUND OF CODE
 
 // var disneyConfirmed = confirm('Would you like to rent some Disney movies? We have a special.');
 
@@ -43,6 +49,9 @@ alert('You owe Blockbuster: $' + MoviePayment);
  $350. How much will you receive in payment for this week? You worked 10 hours for
  Facebook, 6 hours for Google and 4 hours for Amazon.*/
 
+
+// MY CODE
+
 var Google = 400;
 
 var Amazon = 380;
@@ -60,6 +69,9 @@ if(ContractorConfirmed) {
     var FacebookHours = Number(prompt('How many hours did you work for Facebook this week?'));
     var ContractorPayment = (Google * GoogleHours) + (Amazon * AmazonHours) + (Facebook * FacebookHours);
     alert('We owe you $' + ContractorPayment);
+
+    //FIRST ROUND OF CODE
+
     // var hourConfirm = confirm('Did you work 10 hours for Facebook, 6 hours for Google, and 4 hours for Amazon?');
         // if(hourConfirm) {
             // alert('Awesome! We owe you $' + ContractorPayment);
@@ -80,7 +92,7 @@ var FullClass = 24;
 
 var ClassTime = '12:00';
 
-var StudentSchedule = '12:00';
+// var StudentSchedule = '12:00';
 
 var ScheduleTime = prompt('What time would you like to take your class?');
 
@@ -102,7 +114,7 @@ if (ScheduleTime === ClassTime) {
                 }
         }
 } else {
-    alert('I\'m sorry, this is a last minute sign up for class and this is the only slot we have available.');
+    alert("I'm sorry, this is a last minute sign up for class and this is the only slot we have available.");
 }
 
 // ClassTime != StudentSchedule && ClassSize <= FullClass;
