@@ -17,7 +17,7 @@ function sayHello(name){
     }
 console.log(sayHello(name));
 
-/*in order to utilize this function with out the variable being set, you can place
+/*WALKTHROUGH NOTES: in order to utilize this function with out the variable being set, you can place
 the 'codeup' into the name slot in the console.log
  */
 
@@ -167,3 +167,5 @@ function applyDiscount(a, b){
 console.log(applyDiscount(originalPrice, discountPercentage));
 
 })();
+
+//EXERCISE COMPLETE WITH MINIMAL NOTES
