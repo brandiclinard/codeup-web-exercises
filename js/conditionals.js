@@ -17,6 +17,8 @@
  * Can you refactor your code to use functions?
  */
 
+//MY CODE
+
 // var play = confirm("Would you like to enter a number?");
 //
 // if (play) {
@@ -53,7 +55,7 @@
 
     // can build out functions to indicate and use within in the if/else to indicate pos/neg to call on
 
-/* ########################################################################## */
+/** ########################################################################## **/
 
 // Don't change the next two lines!
 // These lines create two variables for you:
@@ -80,6 +82,8 @@
  * Test your function by passing various string literals to it and
  * console.logging the function's return value
  */
+
+// MY CODE
 
 // function analyzeColor(a){
 //     if ('red'){
@@ -113,12 +117,14 @@
 
 //***********Walkthrough notes:
 
-    //diffetence: only returns instead of alert and console.log
+    //difference: only returns instead of alert and console.log
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message everytime you refresh the page
  */
+
+// MY CODE
 
 // console.log(analyzeColor(randomColor));
 
@@ -126,6 +132,8 @@
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+
+// MY CODE
 
 function analyzeColor(a){
     switch(a) {
@@ -179,7 +187,7 @@ console.log(analyzeColor(randomColor));
 // var color = prompt('Please enter a color.').toLowerCase();
 
 
-/* ########################################################################## */
+/** ########################################################################## */
 
 
 
@@ -202,6 +210,8 @@ console.log(analyzeColor(randomColor));
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+
+// MY CODE
 
 // function calculateTotal(luckyNumber, totalBill){
 //     if (luckyNumber === 0){
@@ -248,6 +258,7 @@ console.log(analyzeColor(randomColor));
 
 // Generate a random number between 0 and 6
 
+    //MY CODE
 
     // var luckyNumber = Math.floor(Math.random() * 6);
     //
@@ -264,3 +275,4 @@ console.log(analyzeColor(randomColor));
     //UTILIZING CALCULATETOTAL(LUCKYNUMBER,TOTALBILL) INSTEAD OF JUST CALCULATETOTAL WILL INPUT THE INFORMATION GAINED IN THE FUNCTION.
 
 }());
+
