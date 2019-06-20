@@ -28,11 +28,11 @@
      * string, and <li> tags around each planet.
      */
 
-    var breakPlanets = 'Mercury<br>Venus<br>Earth<br>Mars<br>Jupiter<br>Saturn<br>Uranus<br>Neptune';
+    var breakPlanets = planetsArray.join('<br>');
 
     console.log(breakPlanets);
 
-    //it would not let me split the list at the <br>
+    //REASON THIS IS USEFUL: ON HTML PAGE IT WILL LIST THE ITEMS BUT NOT ON THE CONSOLE EVENTUALLY WHEN WE GET INTO THAT.
 
     //attempt at bonus
 
@@ -54,6 +54,13 @@
 
     //--UNABLE TO ANSWER BONUS QUESTION
 
+
+    //-- WALKTHROUGH OF BONUS:
+
+    // var planetsUL = "<ul><li>" + planetsArray.join('</li><li>') + '</li></ul>';
+
+    //-- BEING ABLE TO DO THIS WILL ALLOW YOU TO ALTER THE HTML OF YOUR WEBPAGE.
 })();
 
 
+//--- EXERCISE COMPLETE-- NOTES FOR BONUS ADDED FROM WALKTHROUGH
