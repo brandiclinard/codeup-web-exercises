@@ -1,5 +1,6 @@
 //this is an IFFE below:
 (function(){
+    //the rest of the IFFE is at the very end of the script
 "use strict";
 
 //function declaration
@@ -610,6 +611,56 @@
     //refer to notes saved from David.
 
 
+    /***** MANIPULATING ARRAYS *********/
+
+    //--you can push an extra element to the end of an array via .push()
+
+    //-- you can add an extra element to the beginning of an array via .unshift()
+
+    //-- both pop and shift allow you to remove methods from an array
+        //-- .pop() removes the last item
+        //--- .shift() removes the first item
+
+    //-- .indexOf() identifies the location of an item in an index
+        //-- .indexOf() will identify the first item
+        //-- if item is repeated then .lastIndexOf() will identify the last occurrence
+    //-- you can use slice similar to substring for arrays.
+        //-- .slice(#,#) will show items within that range.
+        //-- .slice(#) will show that item onward to the end of the array.
+        //-- this will not alter the original array- just create a new array.
+
+    //-- you can reverse everything in the array-- this method will reverse the ORIGINAL(alter) array and RETURN the reversed array.
+        //-- utilize .reverse() at the end of the listed array
+        //-- can include the slice method in order to make a 'copy' of the array that is being manipulated
+
+    //-- sort method will convert items in array to their string equivalent and order them based on that value.... numbers sorted by number, strings sorted by alphabet
+        //--this will alter the ORIGINAL array and return that alteration
+        //--can include the slice method in order to make a 'copy' of the array that is being manipulated
+
+    /**** CONVERTING BETWEEN STRINGS AND ARRAYS *****/
+
+    //-- the .split() method will TURN A STRING INTO AN ARRAY.  uses a delimiter to decide where the splitting should occur. if you specify comma (,) it will split at the comma. if you specify ("") it will split out each individual character.  Whatever you split on will remove that from the string.  Ex: splitting on (D) will remove the letter (D) but return all other letters as array elements prior to and after the (D). Whether you utilize an upper or lowercase letter does alter the split.  Can utilize multiple characters for splitting. Cannot do a split on a split.
+
+    //--joining TAKES AN ARRAY AND CONVERTS TO A STRING with delimiter of choice.  .join() can take input of anything just like split. will combine the input with whatever was designated as the parameter.
+
+    //--concat method -- can take two arrays and make them one.
+
+    //-- ex:
+    //var alphaTeam = [ 'david, 'sophie', 'daniel']
+    //var goldTeam = [ 'fer', 'justin', 'zach']
+    //var staff = alphaTeam.concat(goldTeam)
+
+//     console.log(alphaTeam);
+//     console.log(goldTeam);
+//     console.log(staff);
+//
+//     function removeAtIndex(array, index){
+//         var arr1 = array.slice(0,index);
+//         var arr2 = array.slice(index + 1);
+//         return arr1.concat(arr2)
+//     }
+//
+// console.log(removeAtIndex(grouped array, grouped array.indexOf('index')))
 
 //    this is the end of the IFFE below
 })();
