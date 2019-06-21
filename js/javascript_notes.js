@@ -665,17 +665,18 @@
 
     /************* OBJECT NOTES *****************/
 
-    //-- CREATING AN OBJECT:
-     //-- var myObject = {
+    // // -- CREATING AN OBJECT:
+    //  var myObject = {
     //             value: true,
     //             number: 3,
     //             myString:'hello world',
     //             sayHello: function() {
-    //     console.log('hello!');
-    // },
-    // }
-
-            // myObject.sayHello();
+    //                 console.log('hello!');
+    //     }
+    // };
+    //
+    //         myObject.sayHello();
+    // console.log(myObject.myString);
     //
     // physical example:
     // var macBook = {
