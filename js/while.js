@@ -21,6 +21,8 @@
  32768
  65536                *******/
 
+// THIS CODE WORKS
+
 // var num = 2;
 // var maxValue = 65536;
 //
@@ -46,4 +48,48 @@
  *************/
 
 
+var sellMin = 50;
+var sellMax = 100;
+var conesToSell = Math.floor(Math.random() * (sellMax - sellMin + 1) + sellMin);
+
+
+
+//console.log amount of cones sold
+do{
+    var buyMin = 1;
+    var buyMax = 5;
+    var conesBought = Math.floor(Math.random()* (buyMax - buyMin + 1) + buyMin);
+    console.log(conesToSell);
+    if(conesBought <= conesToSell){
+        conesToSell -= conesBought;
+        console.log(conesBought + " sold.");
+
+    }else{
+        console.log('You cannot buy ' + conesBought + ". I only have " + conesToSell + ".");
+    }
+
+}while(conesToSell>0);
+
+console.log("All sold!");
+
+
+
+
+// var i = 0;
+//
+//     while (i < 10) {
+//         console.log('while loop iteration #' + i);
+//         i++;
+//     }
+//
+//     var i = 10;
+//
+//     do {
+//         console.log('while loop iteration #' + i);
+//         i++;
+//     } while (i < 10);
+
+
 })();
+
+//--- EXERCISE COMPLETE
