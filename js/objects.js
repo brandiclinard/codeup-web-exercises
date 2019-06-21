@@ -43,6 +43,14 @@
     //
     // person.sayHello();
 
+    // WALK THROUGH NOTES
+
+    // person.sayHello = function (){
+    //     return "Hello from " + this.firstName + " " + this.lastName + "!";
+    // };
+    //
+    // console.log(person.sayHello());
+
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -82,11 +90,58 @@
     // shoppers.forEach(function (shopper) {
     //     console.log("This shopper's name is " + shopper.name + ".");
     //     console.log("They owe $" + shopper.amount + ".");
-    //     console.log("Their discount total is $" + discount(shopper.amount) + ".");
+    //     console.log("Their discount total is $" + discount(shopper.amount).toFixed(2) + ".");
     //     console.log("After discount, (if they qualified, they owe $" + (shopper.amount- discount(shopper.amount)).toFixed(2));
     // });
 
 
+    // // WALK THROUGH NOTES
+    // //-- CREATE A FN TO CALCULATE DISCOUNT
+    //
+    // function calculateDiscount(total){
+    //     var output = 0;
+    //     if (total > 200){
+    //         output = total * .12;
+    //     }
+    //     return output;
+    // }
+    //
+    // //-- CREATE A FN TO CONVERT NUM TO CURRENCY
+    //
+    // function convertToCurrency(num){
+    //     return "$" + num.toFixed(2);
+    // }
+    //
+    // //-- DISPLAY INDIVIDUAL INFO FOR EACH SHOPPER
+    //
+    // function displayShopperInfo(shopper){
+    //     //default empty string
+    //     var output = "";
+    //     //var stores total amount
+    //     var amount = convertToCurrency(shopper.amount);
+    //     //var stores discount to be applied
+    //     var discount = webkitConvertPointFromNodeToPage((calculateDiscount(shopper.amount)));
+    //     //var stores final totoal
+    //     var finalAmount = convertToCurrency(shopper.amount - calculateDiscount(shopper.amount);
+    //     //concatenate onto empty string
+    //     output += shopper.name + ' spent' + amount;
+    //     output += ' and received a discount of ' + discount;
+    //     output += " and paid " + finalAmount;
+    //     //return final string
+    //     return output;
+    // }
+    //
+    // //-- DISPLAY INFO FOR ALL SHOPPERS
+    // function displayShoppersInfo(shoppers){
+    //     shoppers.forEach(function(shopper){
+    //         console.log(displayShopperInfo(shopper));
+    //
+    //     });
+    // }
+    //
+    // displayShoppersInfo(shoppers);
+
+//being able to have a returned output will ALWAYS be usable on different browsers.  console.log AFTER.
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -178,6 +233,20 @@ var books = [
     //     console.log("-----------");
     // });
 
+
+    //--WALK THROUGH NOTES
+
+    // books.forEach(function(book, i){
+    //     var output = "";
+    //     output += "Book # " + (i + 1) + "\n";
+    //     output += "Title: " + book.title + "\n";
+    //     output += "Author: " + book.author.firstName + " " + book.author.lastName + "\n";
+    //     output += "---" + "\n";
+    //     console.log(output);
+    // });
+
+    // \n creates a line break in the console
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -188,23 +257,51 @@ var books = [
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-
-    var title = "";
-    var author = "";
-    var bookNum = 0;
-
-    do{
-    function createBooks (parameters){
-        var title = parameters.title;
-        var author = parameters.author;
-        console.log ("Book #:" + (bookNum + 1) + " Title: " + title + " Author: " + author);
-        }
-
-    }while (bookNum < (books.length + 2));
-
-
-createBooks(books);
+//
+//     var title = "";
+//     var author = "";
+//     var bookNum = 0;
+//
+//     do{
+//     function createBooks (parameters){
+//         var title = parameters.title;
+//         var author = parameters.author;
+//         console.log ("Book #:" + (bookNum + 1) + " Title: " + title + " Author: " + author);
+//         }
+//
+//     }while (bookNum < (books.length + 2));
+//
+//
+// createBooks(books);
 
 // UNABLE TO COMPLETE BONUS-- ERROR MESSAGE FROM INTELLIJ THAT FUNCTION STATEMENT IS NOT AT TOP LEVEL OF A PROGRAM OR FUNCTION IS PROHIBITED--- GIVE ON THE CREATEBOOKS.
 
+    //-- WALK THROUGH NOTES OF BONUS
+
+    function createBook(title, firstName, lastName){
+        var book = {};
+        book.title = title;
+        book.author = {};
+        book.author.firstName = firstName;
+        book.author.lastName = lastName;
+        return book;
+    }
+
+    books.push(createBook("How to Draw Manga", "Katy", "Coope"));
+    console.log(books);
+
+    function showBookInfo(book, i){
+        var output = "";
+            output += "Book # " + (i + 1) + "\n";
+            output += "Title: " + book.title + "\n";
+            output += "Author: " + book.author.firstName + " " + book.author.lastName + "\n";
+            output += "---" + "\n";
+            console.log(output);
+    }
+
+    showBookInfo(books);
+
+
 })();
+
+//-- UPDATED WITH WALK THROUGH NOTES
