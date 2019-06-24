@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://java.codeup.com/examples/javascript/dom-query-js.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+
+<h1 id="main-header">Hello World!</h1>
+<ul>
+    <li data-dbid="1">Item 1</li>
+    <li data-dbid="2">Item 2</li>
+    <li data-dbid="3">Item 3</li>
+    <li data-dbid="4">Item 4</li>
+    <li data-dbid="5">Item 5</li>
+</ul>
+<h2 id="sub-header">Hello Again.</h2>
+<p class="sub-paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<button type ="button" id = btn1>Click Me To Change Main Header!</button>
+<button type ="button" id = btn2>Click Me To Change Sub-header Blue!</button>
+<button type ="button" id = btn3>Click Me To Change Our List!</button>
+<button type ="button" id = btn4>Click Me To Change Sub-paragraph!</button>
+
+<script>
+    (function() {
+        "use strict";
+        // TODO: Uncomment next line and get the main header element by id
+        var mainHeader = document.getElementById('main-header');
+        // console.log(mainHeader); // utilized to ensure correct
+
+        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        function changeMainHeader(){
+            mainHeader.innerHTML = 'JavaScript is Cool';
+        }
+        // console.log(mainHeader.innerHTML);// utilized to ensure correct
+
+        document.getElementById('btn1').addEventListener('click', changeMainHeader, false);
+        //set event listener to false whenever not utilizing the information in a true format in a loop -- needed to repeat the event.
+
+        // TODO: Uncomment the next line and get the sub header element by id
+        var subHeader = document.getElementById('sub-header');
+        // console.log(subHeader);// utilized to ensure correct
+
+        // TODO: Set the text color of subHeader to blue
+
+        function changeSubHeaderBlue () {
+            subHeader.style.color = "blue";
+        }
+
+        document.getElementById('btn2').addEventListener('click', changeSubHeaderBlue, true);
+
+        // TODO: Uncomment the next line and get all list items
+        var listItems = document.getElementsByTagName('li');
+        // console.log(listItems[0]); // to ensure correct
+
+        // TODO: Set text color on every other list item to grey
+        // TODO: Set text color of li with dbid = 1 to blue
+
+
+        function changeList (){
+            for (var i = 0, l = listItems.length; i < l; i++) {
+                var dbid = listItems[i].getAttribute('data-dbid');
+                // console.log(dbid);//to verify correct
+                if (dbid == 1){
+                    listItems[i].style.color = 'blue';
+                }else if (i % 2 === 0) {
+                    listItems[i].style.color = 'grey';
+                }
+            }
+        }
+
+        document.getElementById("btn3").addEventListener('click', changeList, true);
+
+        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
+        // console.log(subParagraphs);//utilized to ensure correct
+
+        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+            function changeSubParagraph(){
+                subParagraphs[0].innerText = "Mission Accomplished!";
+            }
+
+        document.getElementById('btn4').addEventListener('click', changeSubParagraph, true);
+
+
+    })();
+</script>
+
+
+</body></html>
+
+<!--EXERCISES COMPLETE. WALK THROUGH NOTES RECOMMEND UTILIZING FALSE WHENEVER THE ADD EVENT LISTENER FUNCTION IS NOT GOING TO BE UTILIZED IN A LOOP TO NOT WASTE MEMORY.  STATED AND SHOWED HOW TO USE IN AN ANONYMOUS FUNCTION.  BEST PRACTICE IS TO USE VARIABLES TO REFERENCE YOUR FUNCTIONS TO USE AGAIN LATER.-->
