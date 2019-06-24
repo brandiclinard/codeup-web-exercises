@@ -25,48 +25,76 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button type ="button" id = btn1>Click Me To Change Main Header!</button>
+<button type ="button" id = btn2>Click Me To Change Sub-header Blue!</button>
+<button type ="button" id = btn3>Click Me To Change Our List!</button>
+<button type ="button" id = btn4>Click Me To Change Sub-paragraph!</button>
+
 <script>
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
         var mainHeader = document.getElementById('main-header');
-        console.log(mainHeader);
+        // console.log(mainHeader); // utilized to ensure correct
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = 'JavaScript is Cool';
-        console.log(mainHeader.innerHTML);
+        function changeMainHeader(){
+            mainHeader.innerHTML = 'JavaScript is Cool';
+        }
+        // console.log(mainHeader.innerHTML);// utilized to ensure correct
+
+        document.getElementById('btn1').addEventListener('click', changeMainHeader, true);
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
-        console.log(subHeader);
+        // console.log(subHeader);// utilized to ensure correct
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = "blue";
+
+        function changeSubHeaderBlue () {
+            subHeader.style.color = "blue";
+        }
+
+        document.getElementById('btn2').addEventListener('click', changeSubHeaderBlue, true);
 
         // TODO: Uncomment the next line and get all list items
         var listItems = document.getElementsByTagName('li');
-        console.log(listItems[0]);
+        // console.log(listItems[0]); // to ensure correct
 
         // TODO: Set text color on every other list item to grey
-        for (var i = 0, l = listItems.length; i < l; i++) {
-            if (i % 2 === 0) {
-                listItems[i].style.color = 'grey';
+        // TODO: Set text color of li with dbid = 1 to blue
+
+
+        function changeList (){
+            for (var i = 0, l = listItems.length; i < l; i++) {
+                var dbid = listItems[i].getAttribute('data-dbid');
+                // console.log(dbid);//to verify correct
+                if (dbid == 1){
+                    listItems[i].style.color = 'blue';
+                }else if (i % 2 === 0) {
+                    listItems[i].style.color = 'grey';
+                }
             }
         }
 
-        // TODO: Set text color of li with dbid = 1 to blue
-        listItems[0].style.color = 'blue';
+        document.getElementById("btn3").addEventListener('click', changeList, true);
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         var subParagraphs = document.getElementsByClassName('sub-paragraph');
-        console.log(subParagraphs);
+        // console.log(subParagraphs);//utilized to ensure correct
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-            subParagraphs[0].innerText = "Mission Accomplished!";
+            function changeSubParagraph(){
+                subParagraphs[0].innerText = "Mission Accomplished!";
+            }
+
+        document.getElementById('btn4').addEventListener('click', changeSubParagraph, true);
+
+
     })();
 </script>
 
 
 </body></html>
 
-<!--EXERCISE COMPLETE.  I DO NOT THINK I CHANGED THE COLOR TO THE DBID = 1 CORRECTLY.  WILL ALTER WITH WALK THROUGH.-->
+<!--EXERCISE COMPLETE. WALK THROUGH NOTES ADDED AND THE NEXT EXERCISE COMPLETE. PENDING NEXT EXERCISE WALK THROUGH.-->
