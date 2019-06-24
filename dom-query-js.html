@@ -43,7 +43,8 @@
         }
         // console.log(mainHeader.innerHTML);// utilized to ensure correct
 
-        document.getElementById('btn1').addEventListener('click', changeMainHeader, true);
+        document.getElementById('btn1').addEventListener('click', changeMainHeader, false);
+        //set event listener to false whenever not utilizing the information in a true format in a loop -- needed to repeat the event.
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
@@ -97,4 +98,4 @@
 
 </body></html>
 
-<!--EXERCISE COMPLETE. WALK THROUGH NOTES ADDED AND THE NEXT EXERCISE COMPLETE. PENDING NEXT EXERCISE WALK THROUGH.-->
+<!--EXERCISES COMPLETE. WALK THROUGH NOTES RECOMMEND UTILIZING FALSE WHENEVER THE ADD EVENT LISTENER FUNCTION IS NOT GOING TO BE UTILIZED IN A LOOP TO NOT WASTE MEMORY.  STATED AND SHOWED HOW TO USE IN AN ANONYMOUS FUNCTION.  BEST PRACTICE IS TO USE VARIABLES TO REFERENCE YOUR FUNCTIONS TO USE AGAIN LATER.-->
