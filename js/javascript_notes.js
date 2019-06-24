@@ -800,7 +800,13 @@
 
     //--CAN CHOOSE YOUR FIGHTER[].GREETING TO SEE WHAT THEY SAY
 
-    //--
+
+
+    /**************REVIEW NOTES***************/
+
+    //--LOOPS
+
+
 
 //    this is the end of the IFFE below
 })();

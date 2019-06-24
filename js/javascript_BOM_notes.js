@@ -102,3 +102,7 @@ var timeoutId = setTimeout(delayHello, delay);
 
 //location.reload(true) is utilized to reload from the server-- only applies with backend javascript
 
+/*************DOM NOTES**********************************/
+
+//can access the DOM in JS with tag names/ class names/ id names... it is a map of your HTML.
+
