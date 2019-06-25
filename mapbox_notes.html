@@ -1,79 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8' />
-    <title>Animate map camera around a point</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
-    <script src="js/keys.js"></script>
+    <meta charset="UTF-8">
+    <title>First Mapbox Map</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
     <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
     </style>
 </head>
 <body>
 
+<h1>My First Mapbox Map!</h1>
+<button id="button">CLICK TO SEE POP UPS!</button>
+<button id="button2">CLICK TO GEOCODE!</button>
+<button id="alamo">REMEMBER THE ALAMO!</button>
+
+<!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src = "js/keys.js"></script>
+<script src = "js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
 <script>
     mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({
+    var options = {
         container: 'map',
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: [-98.4896, 29.4267],
-        zoom: 15.5,
-        pitch: 45
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 12,
+        center: [-98.4916, 29.4252]
+    };
+    var map = new mapboxgl.Map (options);//having options.zoom prior to this line will set to 12 (or whatever setting) and having it after will set the zoom to what it is set at in the function.
+    // options.zoom = 12;
+    // map.setZoom(12);//this will reset the zoom BACK to 12 after running the function.
+
+    geocode('San Antonio, TX', mapboxToken).then(function(result){
+        var marker = new mapboxgl.Marker()// is there a way to set more than two markers?-- yes if you add one prior to function
+            .setLngLat(result)
+            .addTo(map);
     });
 
-    function rotateCamera(timestamp) {
-        // clamp the rotation between 0 -360 degrees
-        // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
-        map.rotateTo((timestamp / 100) % 360, {duration: 0});
-        // Request the next frame of the animation.
-        requestAnimationFrame(rotateCamera);
-    }
+    document.getElementById("button").addEventListener("click", function() {
+        var popup = new mapboxgl.Popup()
+            .setLngLat([-98.489615, 29.426827])
+            .setHTML("<p>Codeup Rocks!</p>")
+            .addTo(map);
+
+        var popup2 = new mapboxgl.Popup()
+            .setLngLat([-98.4935, 29.4263])
+            .setHTML('Geekdom!')
+            .addTo(map);
+
+        var popup3 = new mapboxgl.Popup()
+            .setLngLat([-98.4878, 29.4196])
+            .setHTML('Playground!')
+            .addTo(map);
+
+        map.setZoom(16);
+    });
 
 
-    map.on('load', function () {
-        // Start the animation.
-        rotateCamera(0);
+    document.getElementById("button2").addEventListener("click", function() {
+        // var marker = new mapboxgl.Marker()
+        //     .setLngLat([-98.4917708, 29.4265798])
+        //     .addTo(map);
 
-        // Add 3d buildings and remove label layers to enhance the map
-        var layers = map.getStyle().layers;
-        for (var i = 0; i < layers.length; i++) {
-            if (layers[i].type === 'symbol' && layers[i].layout['text-field']) {
-                // remove text labels
-                map.removeLayer(layers[i].id);
-            }
-        }
 
-        map.addLayer({
-            'id': '3d-buildings',
-            'source': 'composite',
-            'source-layer': 'building',
-            'filter': ['==', 'extrude', 'true'],
-            'type': 'fill-extrusion',
-            'minzoom': 15,
-            'paint': {
-                'fill-extrusion-color': '#aaa',
 
-                // use an 'interpolate' expression to add a smooth transition effect to the
-                // buildings as the user zooms in
-                'fill-extrusion-height': [
-                    "interpolate", ["linear"], ["zoom"],
-                    15, 0,
-                    15.05, ["get", "height"]
-                ],
-                'fill-extrusion-base': [
-                    "interpolate", ["linear"], ["zoom"],
-                    15, 0,
-                    15.05, ["get", "min_height"]
-                ],
-                'fill-extrusion-opacity': .6
-            }
+        // the  geocode method from mapbox-geocoder-utils.js
+        geocode("600 Navarro St #350, San Antonio, TX 78205", mapboxToken).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            var marker = new mapboxgl.Marker()// is there a way to set more than two markers?
+                .setLngLat(result)
+                .addTo(map);
+
+            map.setZoom(18);
+        });
+
+    });
+
+    document.getElementById('alamo').addEventListener('click',function(){
+        // reverse geocode method from mapbox-geocoder-utils.js
+        reverseGeocode({lng: -98.4861, lat: 29.4260}, mapboxToken).then(function(results) {
+            // logs the address for The Alamo
+            var marker = new mapboxgl.Marker()
+                .setLngLat({lng: -98.4861, lat: 29.4260})
+                .addTo(map);
+            console.log(results);
         });
     });
 </script>
-
 </body>
 </html>
