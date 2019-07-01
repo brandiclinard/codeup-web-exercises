@@ -802,9 +802,27 @@
 
 
 
-    /**************REVIEW NOTES***************/
+    /**************REVIEW NOTES FOR COFFEE PROJECT-- THE SIMULATED WALK THROUGH (BLOG POSTS)***************/
 
-    //--LOOPS
+    // --THIS IS AN EXAMPLE OF HOW TO INTERACT WITH THE HTML WITH JS AND POST TO THE HTML
+
+    function buildHTML(arr) {
+        var finalHtml = "";
+        arr.forEach(function(element){
+            finalHtml += "<div><h2>" + element.title + "</h2>";
+            finalHtml += "<p>" + element.body + "</p>";
+            finalHtml += "<p>";
+            element.forEach(function(category, i, arr){
+                if (i === (arr.length - 1)){
+                    finalHtml += category;
+                } else {
+                    finalHtml += category + ", ";
+                }
+            });
+            finalHtml += "</p></div>";
+        });
+        document.getElementById('blog-posts').innerHTML = finalHtml
+    }
 
 
 
