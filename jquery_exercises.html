@@ -54,14 +54,17 @@
         //When altering different class names, yes the border set followed when refreshed to the new selector with the same class name and left the old selector whose class name was changed back.
 
 //Element Selectors
-        $('li').css("font-size", '20px');
+//         $('li').css("font-size", '20px');
 
-        $('h1, p, li').css('background-color', 'yellow');
+        // $('h1, p, li').css('background-color', 'yellow');//I already created a multiple selector to highlight.... will create separate statements below to differentiate.
+    $('h1').css('background-color', 'red');
+    $('p').css('background-color', 'pink');
+    $('li').css('background-color', 'purple');
 
-    function contents(){
-        alert($('h1').html());
-    }
-    contents();
+    // function contents(){
+    //     alert($('h1').html());
+    // }
+    // contents();
         //Could refactor code to a function holding input with the variable being set and altering the variable and just recalling the contents function for multiple use.
 
 
