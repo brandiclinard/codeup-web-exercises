@@ -7,12 +7,12 @@
 <body>
 <!--HTML design-->
 <div class = "divider" id = "divider">
-<h1 class = "header" id = "header">Working with jQuery!</h1>
+<h1 class = "codeup" id = "header">Working with jQuery!</h1>
 
-<p class = "paragraph" id = "paragraph">jQuery makes selecting elements in the DOM very simple and has a powerful and optimized selector engine. We have the following available selectors in this course:</p>
+<p class = "codeup" id = "paragraph">jQuery makes selecting elements in the DOM very simple and has a powerful and optimized selector engine. We have the following available selectors in this course:</p>
 
 <ul class = "unorderedList" id = "unorderedList">
-    <li class = "list" id = "selector">ID Selector</li>
+    <li class = "codeup" id = "selector">ID Selector</li>
     <li class = "list" id = "class">Class Selector</li>
     <li class = "list" id = "element">Element Selector</li>
     <li class = "list" id = "multiple">Multiple Selector</li>
@@ -26,27 +26,36 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 
     <script>
-        // can use jQuery vs $ to initiate  JS jQuery Library
-        $(document).ready(function() {
-            alert( 'The DOM has finished loading!' );
-        });
+    //     // can use jQuery vs $ to initiate  JS jQuery Library
+    //     $(document).ready(function() {
+    //         alert( 'The DOM has finished loading!' );
+    //     });
+    //
+    //     // Id Selectors
+    //     function contents(){
+    //         alert($('#all').html());
+    //     }
+    //     contents();
+    //
+    //     function contents(){
+    //         alert($('#multiple').html());
+    //     }
+    //     contents();
+    //
+    // //    When two selectors have the same id your code is broken.  IntelliJ warns you that it will not work and red lines it.
+    //     function contents(){
+    //         alert($('#selector').html());
+    //     }
+    //     contents();// by using something with the same id and running the code anyways, it alerted with the same pop up three times with no variation.
 
-        // selecting by id
-        function contents(){
-            alert($('#all').html());
-        }
-        contents();
+        //Class Selectors
+        $('.codeup').css('border', '1px solid red');
 
-        function contents(){
-            alert($('#multiple').html());
-        }
-        contents();
+        //When altering different class names, yes the border set followed when refreshed to the new selector with the same class name and left the old selector whose class name was changed back.
 
-    //    When two selectors have the same id your code is broken.  IntelliJ warns you that it will not work and red lines it.
-        function contents(){
-            alert($('#selector').html());
-        }
-        contents();// by using something with the same id and running the code anyways, it alerted with the same pop up three times with no variation.
+
+
+
 
     </script>
 </body>
