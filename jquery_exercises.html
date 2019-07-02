@@ -48,14 +48,21 @@
     //     function contents(){
     //         alert($('#selector').html());
     //     }
-    //     contents();// by using something with the same id and running the code anyways, it alerted with the same pop up three times with no variation.
+    //     contents();// by using something with the same id and running the code anyways, it alerted with the same pop up three times with no variation. Only the FIRST selector will display, the same as with CSS.
+
+        /***** WALK THROUGH *****
+         * alert($('#id').html());
+         */
 
         //Class Selectors
         // $('.codeup').css('border', '1px solid red');
 
-        //When altering different class names, yes the border set followed when refreshed to the new selector with the same class name and left the old selector whose class name was changed back.
+        //When altering different class names, yes the border set followed when refreshed to the new selector with the same class name and left the old selector whose class name was changed back. Does not effect ids due to the selector being the class.
 
-//Element Selectors
+        /****** WALK THROUGH *****
+         * Nothing to change with my code */
+
+//Element Selectors/ Multiple Selectors
 //         $('li').css("font-size", '20px');
 
         // $('h1, p, li').css('background-color', 'yellow');//I already created a multiple selector to highlight.... will create separate statements below to differentiate.
@@ -68,6 +75,8 @@
     // }
     // contents();
         //Could refactor code to a function holding input with the variable being set and altering the variable and just recalling the contents function for multiple use.
+        /***** WALK THROUGH *****
+         * Can chain on CSS changes to the original element selected that is also getting highlighted.*/
 
 /******** MOUSE EVENT EXERCISES **************/
 
