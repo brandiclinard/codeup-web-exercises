@@ -28,17 +28,97 @@
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
+<!--MAPBOX GEOCODER METHODS-->
 <script src="js/mapbox-geocoder-utils.js"></script>
 
 <!-- Custom JS -->
 <script>
+
+    //my code
+
+    // mapboxgl.accessToken = mapboxToken;
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/streets-v9',
+    //     zoom: 12,
+    //     center: [-98.4916, 29.4252]
+    // });
+
+    //-- RECOMMENDED CREATING A SEPARATE OBJECT TO PASS THROUGH THE FUNCTION
+    //-- THIS IS INSTRUCTOR CODE PRIOR TO REFACTORING FOR AN ARRAY
+    // mapboxgl.accessToken = mapboxToken;
+    // var sanAntonio;
+    // geocode('San Antonio, TX', mapboxToken).then(function(SATX){
+    //     var sanAntonio = SATX;
+    //     var mapOptions = {
+    //         center:sanAntonio,
+    //         zoom: 20,
+    //         style: 'mapbox://styles/mapbox/streets-v9',
+    //         container: "map"
+    //     };
+    //     var ourMap = new mapboxgl.Map(mapOptions);
+    //     ourMap.setZoom(15);
+    //
+    //     geocode("Original Blanco Cafe", mapboxToken).then(function(blancoCafe){
+    //         var popup1 = new mapboxgl.Popup()
+    //             .setHTML("Original Blanco Cafe")
+    //             .setLngLat(blancoCafe);
+    //             // .addTo(ourMap);
+    //
+    //         var marker1 = new mapboxgl.Marker({color:'orange'})
+    //             .setLngLat(blancoCafe)
+    //             .addTo(ourMap)
+    //             .setPopup(popup1);
+
     mapboxgl.accessToken = mapboxToken;
-    var map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 12,
-        center: [-98.4916, 29.4252]
-    });
+    var sanAntonio;
+    geocode('San Antonio, TX', mapboxToken).then(function(SATX){
+        var sanAntonio = SATX;
+        var mapOptions = {
+            center:sanAntonio,
+            zoom: 20,
+            style: 'mapbox://styles/mapbox/streets-v9',
+            container: "map"
+        };
+        var ourMap = new mapboxgl.Map(mapOptions);
+        ourMap.setZoom(15);
+
+        var favoriteRestaurants = [
+            {name: "Original Blanco Cafe"},
+            {name: "Pinch Boil House"},
+            {name: "Texas de Brazil"},
+            {name: "Lulu's Bakery"},
+            {name: "La Panaderia"},
+            {name: "Rainforest Cafe"}
+        ];
+
+        favoriteRestaurants.forEach(function(item){
+           geocode(item.name, mapboxToken).then(function(coord){
+               var popup1 = new mapboxgl.Popup()
+                   .setHTML(item.name)
+                   .setLngLat(coord);
+               // .addTo(ourMap);
+
+               var marker1 = new mapboxgl.Marker({color:'orange'})
+                   .setLngLat(coord)
+                   .addTo(ourMap)
+                   .setPopup(popup1);
+           })
+        });
+
+    //     geocode(place, mapboxToken).then(function(blancoCafe){
+    //         var popup1 = new mapboxgl.Popup()
+    //             .setHTML("Original Blanco Cafe")
+    //             .setLngLat(blancoCafe);
+    //         // .addTo(ourMap);
+    //
+    //         var marker1 = new mapboxgl.Marker({color:'orange'})
+    //             .setLngLat(blancoCafe)
+    //             .addTo(ourMap)
+    //             .setPopup(popup1);
+    //     })
+    // });
+
 
     document.getElementById('btn1').addEventListener('click', function(){
         map.setZoom(5);
@@ -51,6 +131,8 @@
     document.getElementById('btn3').addEventListener('click', function(){
         map.setZoom(15);
     });
+
+    //MY CODE PRIOR TO RUNNING AN ARRAY THROUGH- WORKED FOR ONE INDIVIDUAL LOCATION
 
     // document.getElementById('btn4').addEventListener('click', function() {
     //     geocode("Joe's Crab Shack, San Antonio, TX", mapboxToken).then(function (result) {
