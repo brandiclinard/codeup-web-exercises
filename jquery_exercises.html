@@ -26,6 +26,8 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 
     <script>
+        /*********************** SELECTOR EXERCISES ***************/
+
     //     // can use jQuery vs $ to initiate  JS jQuery Library
     //     $(document).ready(function() {
     //         alert( 'The DOM has finished loading!' );
@@ -57,9 +59,9 @@
 //         $('li').css("font-size", '20px');
 
         // $('h1, p, li').css('background-color', 'yellow');//I already created a multiple selector to highlight.... will create separate statements below to differentiate.
-    $('h1').css('background-color', 'red');
-    $('p').css('background-color', 'pink');
-    $('li').css('background-color', 'purple');
+    // $('h1').css('background-color', 'red');
+    // $('p').css('background-color', 'pink');
+    // $('li').css('background-color', 'purple');
 
     // function contents(){
     //     alert($('h1').html());
@@ -67,7 +69,27 @@
     // contents();
         //Could refactor code to a function holding input with the variable being set and altering the variable and just recalling the contents function for multiple use.
 
+/******** MOUSE EVENT EXERCISES **************/
 
+    //Click events
+        $('h1').click(function(){
+            $(this).css('background-color', 'blue');
+        });
+
+    //Double click events
+        $('p').dblclick(function(){
+           $(this).css('font-size', '18px');
+        });
+
+    //Hover events
+        $('li').hover(
+            function(){
+                $(this).css('color', 'red');
+            },
+            function(){
+                $(this).css('color', 'black');
+            }
+        )
 
 
     </script>
