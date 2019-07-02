@@ -824,6 +824,10 @@
         document.getElementById('blog-posts').innerHTML = finalHtml
     }
 
+/************** WALK THROUGH OF SECOND ASSESSMENT--- ONLY JS**********************/
+
+//==RECOMMENDS TAKING NOTE OF WHAT YOU ARE BUILDING AND WHAT YOU ARE WORKING WITH PRIOR TO ASSESSMENT
+
 
 
 //    this is the end of the IFFE below
