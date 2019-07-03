@@ -3,31 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>jquery faq</title>
+    <style>
+        .highlight {
+            background-color: lime;
+        }
+
+        .visible {
+            visibility: visible;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+    </style>
 </head>
 <body>
 <h1>National Park Strange Facts!</h1>
 <div>
+    <h3><a href = '#' id = 'change'>Click to hide facts.</a></h3>
     <dl>
         <dt>Vermont</dt>
-        <dd class = "invisible">The Rockefeller family built a nuclear fallout shelter under the bowling alley at Marsh-Billings-Rockefeller National Historical Park in Vermont.</dd>
+        <dd class = "visible">The Rockefeller family built a nuclear fallout shelter under the bowling alley at Marsh-Billings-Rockefeller National Historical Park in Vermont.</dd>
         <dt>South Dakota</dt>
-        <dd class = "invisible">A South Dakota miner started calling Mount Rushmore by this name after a visiting New York attorney – Charles Rushmore – inquired about the name of the granite cliff. The name stuck and became official in 1930.</dd>
+        <dd class = "visible">A South Dakota miner started calling Mount Rushmore by this name after a visiting New York attorney – Charles Rushmore – inquired about the name of the granite cliff. The name stuck and became official in 1930.</dd>
         <dt>California</dt>
-        <dd class = "invisible">The NPS oversees two former World War II Japanese internment camp sites: Manzanar and Minidoka national historic sites.</dd>
+        <dd class = "visible">The NPS oversees two former World War II Japanese internment camp sites: Manzanar and Minidoka national historic sites.</dd>
         <dt>Nevada/Utah</dt>
-        <dd class = "invisible">Bristlecone pine trees, found in western national parks such as Great Basin National Park in Nevada and Bryce Canyon National Park in Utah can be up to 5,000 years old.</dd>
-        <dt>UTAH</dt>
-        <dd class = "invisible">Zion National Park has a popular slot canyon whose tubular appearance earns it the moniker, “the Subway.”</dd>
+        <dd class = "visible">Bristlecone pine trees, found in western national parks such as Great Basin National Park in Nevada and Bryce Canyon National Park in Utah can be up to 5,000 years old.</dd>
+        <dt>Utah</dt>
+        <dd class = "visible">Zion National Park has a popular slot canyon whose tubular appearance earns it the moniker, “the Subway.”</dd>
         <dt>Wyoming</dt>
-        <dd class = "invisible">According to Kiowa Native American legend, Devils Tower National Monument was created when seven young girls chased by bears jumped on a low rock and prayed for help. The rock rose, lifting the girls out of reach. The bears then scratched deep gouges in the enormous pillar of rock.</dd>
+        <dd class = "visible">According to Kiowa Native American legend, Devils Tower National Monument was created when seven young girls chased by bears jumped on a low rock and prayed for help. The rock rose, lifting the girls out of reach. The bears then scratched deep gouges in the enormous pillar of rock.</dd>
         <dt>Florida</dt>
-        <dd class = "invisible">Everglades National Park is the only place in the world where American alligators and American crocodiles co-exist.</dd>
+        <dd class = "visible">Everglades National Park is the only place in the world where American alligators and American crocodiles co-exist.</dd>
         <dt>Arizona</dt>
-        <dd class = "invisible">Many trees in Arizona’s Petrified Forest National Park are about 218 million years old. Though they died long ago and are actually tree fossils.</dd>
+        <dd class = "visible">Many trees in Arizona’s Petrified Forest National Park are about 218 million years old. Though they died long ago and are actually tree fossils.</dd>
         <dt>Hawaii</dt>
-        <dd class = "invisible">Kalaupapa National Historical Park in Hawaii was first established in 1866 as a leper colony. A few former patients, who are no longer contagious, still live there today.</dd>
+        <dd class = "visible">Kalaupapa National Historical Park in Hawaii was first established in 1866 as a leper colony. A few former patients, who are no longer contagious, still live there today.</dd>
         <dt>Colorado</dt>
-        <dd class = "invisible">Mesa Verde National Park includes ruins of 600 cliff dwellings and is the largest archaeological preserve in the U.S.</dd>
+        <dd class = "visible">Mesa Verde National Park includes ruins of 600 cliff dwellings and is the largest archaeological preserve in the U.S.</dd>
     </dl>
 </div>
 
@@ -35,10 +50,17 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script>
 
-    $('.invisible').css('visibility', 'hidden');
+    // $('.invisible').css('visibility', 'hidden');
+
+
+
+    $(document).ready(function(){
+        $('#change').click(function(event){
+            event.preventDefault();
+            $('.visible').toggleClass('invisible');
+        });
+    });
 
 </script>
-
-
 </body>
 </html>
