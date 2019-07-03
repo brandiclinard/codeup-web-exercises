@@ -5,8 +5,12 @@
     <title>jquery faq</title>
     <style>
         .highlight {
-            background-color: lime;
+            background-color: yellow;
         }
+
+        /*.highlightLime {*/
+        /*    background-color: lime;*/
+        /*}*/
 
         .visible {
             visibility: visible;
@@ -21,28 +25,28 @@
 <body>
 <h1>National Park Strange Facts!</h1>
 <div>
-    <h3><a href = '#' id = 'change'>Click to hide facts.</a></h3>
+<!--    <h3><a href = '#' id = 'change'>Click to see facts.</a></h3>-->
     <dl>
         <dt class = "vermont" id = "vermont">Vermont</dt>
-        <dd class = "visible">The Rockefeller family built a nuclear fallout shelter under the bowling alley at Marsh-Billings-Rockefeller National Historical Park in Vermont.</dd>
+        <dd class = "invisible rockefeller" id = "rockefeller">The Rockefeller family built a nuclear fallout shelter under the bowling alley at Marsh-Billings-Rockefeller National Historical Park in Vermont.</dd>
         <dt class = 'southDakota' id = 'southDakota'>South Dakota</dt>
-        <dd class = "visible">A South Dakota miner started calling Mount Rushmore by this name after a visiting New York attorney – Charles Rushmore – inquired about the name of the granite cliff. The name stuck and became official in 1930.</dd>
+        <dd class = "invisible rushmore">A South Dakota miner started calling Mount Rushmore by this name after a visiting New York attorney – Charles Rushmore – inquired about the name of the granite cliff. The name stuck and became official in 1930.</dd>
         <dt class = 'california' id = 'california'>California</dt>
-        <dd class = "visible">The NPS oversees two former World War II Japanese internment camp sites: Manzanar and Minidoka national historic sites.</dd>
+        <dd class = "invisible nps">The NPS oversees two former World War II Japanese internment camp sites: Manzanar and Minidoka national historic sites.</dd>
         <dt class = 'nevadaUtah' id = 'nevadaUtah'>Nevada/Utah</dt>
-        <dd class = "visible">Bristlecone pine trees, found in western national parks such as Great Basin National Park in Nevada and Bryce Canyon National Park in Utah can be up to 5,000 years old.</dd>
+        <dd class = "invisible pine">Bristlecone pine trees, found in western national parks such as Great Basin National Park in Nevada and Bryce Canyon National Park in Utah can be up to 5,000 years old.</dd>
         <dt class = 'utah' id = 'utah'>Utah</dt>
-        <dd class = "visible">Zion National Park has a popular slot canyon whose tubular appearance earns it the moniker, “the Subway.”</dd>
+        <dd class = "invisible zion">Zion National Park has a popular slot canyon whose tubular appearance earns it the moniker, “the Subway.”</dd>
         <dt class = 'wyoming' id = 'wyoming'>Wyoming</dt>
-        <dd class = "visible">According to Kiowa Native American legend, Devils Tower National Monument was created when seven young girls chased by bears jumped on a low rock and prayed for help. The rock rose, lifting the girls out of reach. The bears then scratched deep gouges in the enormous pillar of rock.</dd>
+        <dd class = "invisible kiowa">According to Kiowa Native American legend, Devils Tower National Monument was created when seven young girls chased by bears jumped on a low rock and prayed for help. The rock rose, lifting the girls out of reach. The bears then scratched deep gouges in the enormous pillar of rock.</dd>
         <dt class = 'florida' id = 'florida'>Florida</dt>
-        <dd class = "visible">Everglades National Park is the only place in the world where American alligators and American crocodiles co-exist.</dd>
+        <dd class = "invisible everglades">Everglades National Park is the only place in the world where American alligators and American crocodiles co-exist.</dd>
         <dt class = 'arizona' id = 'arizona'>Arizona</dt>
-        <dd class = "visible">Many trees in Arizona’s Petrified Forest National Park are about 218 million years old. Though they died long ago and are actually tree fossils.</dd>
+        <dd class = "invisible petrified">Many trees in Arizona’s Petrified Forest National Park are about 218 million years old. Though they died long ago and are actually tree fossils.</dd>
         <dt class = 'hawaii' id = 'hawaii'>Hawaii</dt>
-        <dd class = "visible">Kalaupapa National Historical Park in Hawaii was first established in 1866 as a leper colony. A few former patients, who are no longer contagious, still live there today.</dd>
+        <dd class = "invisible kalaupapa">Kalaupapa National Historical Park in Hawaii was first established in 1866 as a leper colony. A few former patients, who are no longer contagious, still live there today.</dd>
         <dt class = 'colorado' id = 'colorado'>Colorado</dt>
-        <dd class = "visible">Mesa Verde National Park includes ruins of 600 cliff dwellings and is the largest archaeological preserve in the U.S.</dd>
+        <dd class = "invisible mesa">Mesa Verde National Park includes ruins of 600 cliff dwellings and is the largest archaeological preserve in the U.S.</dd>
     </dl>
 </div>
 
@@ -50,93 +54,111 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script>
 
-    // $('.invisible').css('visibility', 'hidden');
-
-
-
     $(document).ready(function(){
-        $('#change').click(function(event){
-            event.preventDefault();
-            $('.visible').toggleClass('invisible');
-        });
-    });
+
+    // $('dd').css('visibility', 'hidden');
+
+        // $('#change').click(function(event){
+        //     event.preventDefault();
+        //     $('.park').toggleClass('invisible');
+        // });
 
     //--BONUS--
-    $(document).ready(function(){
+
+    //--definition portion of click
+
         $('#vermont').click(function(event){
             event.preventDefault();
-            $('.vermont').addClass('highlight');
+            $('.rockefeller').toggleClass('invisible');
         });
-    });
 
-    $(document).ready(function(){
         $('#southDakota').click(function(event){
             event.preventDefault();
-            $('.southDakota').addClass('highlight');
+            $('.rushmore').toggleClass('invisible');
         });
-    });
-
-
-    $(document).ready(function(){
         $('#california').click(function(event){
             event.preventDefault();
-            $('.california').addClass('highlight');
+            $('.nps').toggleClass('invisible');
         });
-    });
-
-
-    $(document).ready(function(){
         $('#nevadaUtah').click(function(event){
             event.preventDefault();
-            $('.nevadaUtah').addClass('highlight');
+            $('.pine').toggleClass('invisible');
         });
-    });
-
-
-    $(document).ready(function(){
         $('#utah').click(function(event){
             event.preventDefault();
-            $('.utah').addClass('highlight');
+            $('.zion').toggleClass('invisible');
         });
-    });
-
-
-    $(document).ready(function(){
         $('#wyoming').click(function(event){
             event.preventDefault();
-            $('.wyoming').addClass('highlight');
+            $('.kiowa').toggleClass('invisible');
         });
-    });
-
-
-    $(document).ready(function(){
         $('#florida').click(function(event){
             event.preventDefault();
-            $('.florida').addClass('highlight');
+            $('.everglades').toggleClass('invisible');
         });
-    });
-
-
-    $(document).ready(function(){
         $('#arizona').click(function(event){
             event.preventDefault();
-            $('.arizona').addClass('highlight');
+            $('.petrified').toggleClass('invisible');
         });
-    });
-
-
-    $(document).ready(function(){
         $('#hawaii').click(function(event){
             event.preventDefault();
-            $('.hawaii').addClass('highlight');
+            $('.kalaupapa').toggleClass('invisible');
         });
-    });
-
-
-    $(document).ready(function(){
         $('#colorado').click(function(event){
             event.preventDefault();
-            $('.colorado').addClass('highlight');
+            $('.mesa').toggleClass('invisible');
+        });
+
+    //--highlight potion of click
+
+        $('#vermont').click(function(event){
+            event.preventDefault();
+            $('.vermont').toggleClass('highlight');
+        });
+
+        $('#southDakota').click(function(event){
+            event.preventDefault();
+            $('.southDakota').toggleClass('highlight');
+        });
+
+        $('#california').click(function(event){
+            event.preventDefault();
+            $('.california').toggleClass('highlight');
+        });
+
+        $('#nevadaUtah').click(function(event){
+            event.preventDefault();
+            $('.nevadaUtah').toggleClass('highlight');
+        });
+
+        $('#utah').click(function(event){
+            event.preventDefault();
+            $('.utah').toggleClass('highlight');
+        });
+
+        $('#wyoming').click(function(event){
+            event.preventDefault();
+            $('.wyoming').toggleClass('highlight');
+        });
+
+        $('#florida').click(function(event){
+            event.preventDefault();
+            $('.florida').toggleClass('highlight');
+        });
+
+        $('#arizona').click(function(event){
+            event.preventDefault();
+            $('.arizona').toggleClass('highlight');
+        });
+
+        $('#hawaii').click(function(event){
+            event.preventDefault();
+            $('.hawaii').toggleClass('highlight');
+        });
+
+        $('#colorado').click(function(event){
+            event.preventDefault();
+            $('.colorado').toggleClass('highlight');
         });
     });
 
