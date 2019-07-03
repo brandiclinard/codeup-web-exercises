@@ -21,15 +21,17 @@
         $(document).keydown(function(e) {
             input += e.keyCode;
             if (input.indexOf(pattern) !== -1) {
-                fn(); //need this to return an empty function
+                fn(); //repeats the function if it is not the pattern
                 input = "";
+                $('body').css('background-image', 'url(https://media.giphy.com/media/e2XQfHkCaKHuw/giphy.gif)').css('image', 'cover').css('color', 'green').css('font-size', '100px');
+            } else {
+                $('body').css('background-image', 'url(https://media3.giphy.com/media/3oriePpBeqZTlmcPYc/giphy.gif)')
             }
         });
     }
 
     $(document).ready(function() {
         konami(function() {
-            $('body').css('background-image', 'url(img/konami.jpg)').css('color', 'green').css('font-size', '100px');
             // $(this).animate({left: '250px'});// cannot get animation to work.
         });
     });
