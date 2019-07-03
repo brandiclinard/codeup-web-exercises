@@ -806,29 +806,49 @@
 
     // --THIS IS AN EXAMPLE OF HOW TO INTERACT WITH THE HTML WITH JS AND POST TO THE HTML
 
-    function buildHTML(arr) {
-        var finalHtml = "";
-        arr.forEach(function(element){
-            finalHtml += "<div><h2>" + element.title + "</h2>";
-            finalHtml += "<p>" + element.body + "</p>";
-            finalHtml += "<p>";
-            element.forEach(function(category, i, arr){
-                if (i === (arr.length - 1)){
-                    finalHtml += category;
-                } else {
-                    finalHtml += category + ", ";
-                }
-            });
-            finalHtml += "</p></div>";
-        });
-        document.getElementById('blog-posts').innerHTML = finalHtml
-    }
+    // function buildHTML(arr) {
+    //     var finalHtml = "";
+    //     arr.forEach(function(element){
+    //         finalHtml += "<div><h2>" + element.title + "</h2>";
+    //         finalHtml += "<p>" + element.body + "</p>";
+    //         finalHtml += "<p>";
+    //         element.forEach(function(category, i, arr){
+    //             if (i === (arr.length - 1)){
+    //                 finalHtml += category;
+    //             } else {
+    //                 finalHtml += category + ", ";
+    //             }
+    //         });
+    //         finalHtml += "</p></div>";
+    //     });
+    //     document.getElementById('blog-posts').innerHTML = finalHtml
+    // }
 
 /************** WALK THROUGH OF SECOND ASSESSMENT--- ONLY JS**********************/
 
 //==RECOMMENDS TAKING NOTE OF WHAT YOU ARE BUILDING AND WHAT YOU ARE WORKING WITH PRIOR TO ASSESSMENT
 
+var arr = [1,2];
 
+var element = 2;
+
+// arr.push(element);
+
+    // console.log(arr);
+
+
+    function add (arr, element) {
+        var newElement = arr.indexOf(element, 0);
+        console.log(newElement);
+        if (newElement !== -1) {
+            console.log(arr);
+        } else {
+            console.log(arr.push(element));
+            console.log(arr);
+        }
+    }
+
+        add(arr, element);
 
 //    this is the end of the IFFE below
 })();

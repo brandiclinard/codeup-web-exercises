@@ -9,28 +9,32 @@
 <script src="js/jquery.js"></script>
 <script>
     "use strict";
+    // $('body').css('background-image', 'url(img/konami.jpg)');// used to ensure background img would work
 
     $(document).keyup(function(event){
         console.log(event.keyCode);
     });
-    //
-    // function konami(fn) {
-    //     var input = "";
-    //     var pattern = "3838404037393739666513";
-    //     $(document).keydown(function(e) {
-    //         input += e.keyCode;
-    //         if (input.indexOf(pattern) !== -1) {
-    //             fn();
-    //             input = "";
-    //         }
-    //     });
-    // }
-    //
-    // $(document).ready(function() {
-    //     konami(function() {
-    //         alert("You did the Konami! W00t!");
-    //     });
-    // });
+
+    function konami(fn) {
+        var pattern = "3838404037393739666513";
+        var input = "";
+        $(document).keydown(function(e) {
+            input += e.keyCode;
+            if (input.indexOf(pattern) !== -1) {
+                fn(); //need this to return an empty function
+                input = "";
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        konami(function() {
+            $('body').css('background-image', 'url(img/konami.jpg)').css('color', 'green').css('font-size', '100px');
+            // $(this).animate({left: '250px'});// cannot get animation to work.
+        });
+    });
+
+    //Other konami codes that I found comparing codes to see other ways to create the konami: (keyCode will be dissipated in the future possibly)
 
     // var global = {
     //
