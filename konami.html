@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1 class = "konami" id = "konami" >Konami Code</h1>
+
+<script src="js/jquery.js"></script>
+<script>
+    "use strict";
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+    });
+    //
+    // function konami(fn) {
+    //     var input = "";
+    //     var pattern = "3838404037393739666513";
+    //     $(document).keydown(function(e) {
+    //         input += e.keyCode;
+    //         if (input.indexOf(pattern) !== -1) {
+    //             fn();
+    //             input = "";
+    //         }
+    //     });
+    // }
+    //
+    // $(document).ready(function() {
+    //     konami(function() {
+    //         alert("You did the Konami! W00t!");
+    //     });
+    // });
+
+    // var global = {
+    //
+    //     konami: function () {
+    //         var konamikeys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13],
+    //             started = false,
+    //             count = 0;
+    //
+    //
+    //         $(document).keydown(function (e) {
+    //             var reset = function () {
+    //                 started = false;
+    //                 count = 0;
+    //                 return;
+    //             },
+    //
+    //             key = e.keyCode;
+    //
+    //             // Begin watching if first key in sequence was pressed.
+    //             if (!started) {
+    //                 if (key === 38) {
+    //                     started = true;
+    //                 }
+    //             }
+    //
+    //             // If we've started, pay attention to key presses, looking for right sequence.
+    //             if (started) {
+    //
+    //                 if (konamikeys[count] === key) {
+    //                     count++;
+    //                 } else {
+    //                     // Incorrect key, restart.
+    //                     reset();
+    //                 }
+    //                 if (count === 10) {
+    //                     // Success!
+    //                     alert('Konami code entered! Do something cool here.');
+    //                     reset();
+    //                 }
+    //             } else {
+    //                 reset();
+    //             }
+    //         });
+    //     }
+    // };
+    //
+    //
+    // global.konami();
+
+    // var kkeys = [], konami = "38,38,40,40,37,39,37,39,66,65,13";
+    //
+    // $(document).keydown(function(e) {
+    //
+    //     kkeys.push( e.keyCode );
+    //
+    //     if ( kkeys.toString().indexOf( konami ) >= 0 ) {
+    //
+    //         $(document).unbind('keydown',arguments);
+    //
+    //         // do something awesome
+    //         $("body").addClass("konami");
+    //         alert($('#konami').html);
+    //
+    //     }
+    //
+    // });
+    </script>
+
+<!--Allow the user to enter the Konami Code: "↑ ↑ ↓ ↓ ← → ← → b a enter" (the return key)
+Find the matching sequence using the code above for each key in the Konami Code. ( 38 38 40 40 37 39 37 39 66 65 13 )--Key codes per the console.
+Don't worry about capital a or b just check for lowercase.
+After the correct Konami Code sequence is inputted, have the script alert the user: "You have added 30 lives! Other ideas:
+Change the background screen.
+Play a sound.
+Be creative!
+Happy Playing.-->
