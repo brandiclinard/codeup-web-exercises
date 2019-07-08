@@ -828,27 +828,63 @@
 
 //==RECOMMENDS TAKING NOTE OF WHAT YOU ARE BUILDING AND WHAT YOU ARE WORKING WITH PRIOR TO ASSESSMENT
 
-var arr = [1,2];
+// var arr = [1,2];
+//
+// var element = 2;
+//
+// // arr.push(element);
+//
+//     // console.log(arr);
+//
+//
+//     function add (arr, element) {
+//         var newElement = arr.indexOf(element, 0);
+//         console.log(newElement);
+//         if (newElement !== -1) {
+//             console.log(arr);
+//         } else {
+//             console.log(arr.push(element));
+//             console.log(arr);
+//         }
+//     }
+//
+//         add(arr, element);
 
-var element = 2;
+    //
+    // var row1 = [4, 9, 2];
+    // var row2 = [3, 5, 7];
+    // var row3 = [8, 1, 6];
+    // var loshu = [row1, row2, row3];
+    //
+    // function flat (arr){
+    //     var myNewArray = [].concat.apply([], arr);
+    //     console.log(myNewArray);
+    //     return myNewArray;
+    // }
+    //
+    // flat(loshu);
+    // console.log(loshu);
 
-// arr.push(element);
-
-    // console.log(arr);
-
-
-    function add (arr, element) {
-        var newElement = arr.indexOf(element, 0);
-        console.log(newElement);
-        if (newElement !== -1) {
-            console.log(arr);
-        } else {
-            console.log(arr.push(element));
-            console.log(arr);
+    function median (arr){
+        var med = Math.floor(arr.length / 2);
+        var med2 = med - 1;
+        if (arr.length % 2!== 0){
+            var b = Number(arr.splice(med, 1));
+            return (b);
+        }else if (arr.length % 2 === 0){
+            var a = arr.splice(med2 , 2);
+            var agg = 0;
+            a.forEach(function(n){
+                agg += n;
+            });
+            return (agg / 2);
+        }else{
+            return (med);
         }
     }
 
-        add(arr, element);
+    median([1, 1, 2, 10, 100, 101]);
+
 
 //    this is the end of the IFFE below
 })();
