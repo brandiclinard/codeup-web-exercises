@@ -23,9 +23,15 @@
             if (input.indexOf(pattern) !== -1) {
                 fn(); //repeats the function if it is not the pattern
                 input = "";
-                $('body').css('background-image', 'url(https://media.giphy.com/media/e2XQfHkCaKHuw/giphy.gif)').css('color', 'green').css('font-size', '100px');
+                $('body')
+                    .css('background-image', 'url(https://media.giphy.com/media/e2XQfHkCaKHuw/giphy.gif)')
+                    .css('color', 'green')
+                    .css('font-size', '100px');
             } else {
-                $('body').css('background-image', 'url(https://media3.giphy.com/media/3oriePpBeqZTlmcPYc/giphy.gif)');
+                $('body').css({
+                    backgroundImage: 'url(https://media3.giphy.com/media/3oriePpBeqZTlmcPYc/giphy.gif)',
+                    backgroundSize: '1500px 750px'
+                });
             }
         });
     }
