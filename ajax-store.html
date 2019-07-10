@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://java.codeup.com/examples/javascript/ajax-store.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Online Store</title>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<!--    <h3>Add to Inventory</h3>-->
+<!--    <hr>-->
+
+<!--<form action="inventory.json" method="POST" name="updates">-->
+<!--    Title:-->
+<!--    <input type="text" name="title" id="title">-->
+<!--    Quantity:-->
+<!--    <input type="text" name="quantity" id="quantity">-->
+<!--    Price:-->
+<!--    <input type="text" name="price" id="price">-->
+<!--    Categories:-->
+<!--    <input type="text" name="categories" id="categories">-->
+   <button id="update">Refresh</button>
+<!--</form>-->
+
+<hr>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+
+<!--jQuery-->
+<script type="text/javascript"
+        src="js/jquery.js"></script>
+
+<!--AJAX-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+<script>
+(function() {
+    "use strict";
+    // TODO: Create an ajax GET request for /data/inventory.json
+    // $.ajax("inventory.json", {
+    //     type: "GET",
+    //     data: {}
+    // }).done(function(data){
+    //     // console.log(data);
+    // });
+    //
+
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+    // $.getJSON('inventory.json',
+    //     function (data) {
+    //         var tr;
+    //         for (var i = 0; i < data.length; i++) {
+    //             tr = $('<tr/>');
+    //             tr.append("<td>" + data[i].title + "</td>");
+    //             tr.append("<td>" + data[i].quantity + "</td>");
+    //             tr.append("<td>" + data[i].price + "</td>");
+    //             tr.append("<td>" + data[i].categories + "</td>");
+    //             $('#products').append(tr);
+    //         }
+    //     });
+
+
+
+
+    function updates () {
+        var request = $.ajax("inventory.json");
+        // console.log(request);// verification
+        request.done(function(data){
+            // console.log(data);//verification
+            var html = makeHTML(data);
+            $('#insertProducts').html(html);
+        })
+            .fail(function(jqXhr, status, error) {
+            console.log("Request failed! " + status);
+            })
+            .always(function() {
+            console.log("Request made.");
+            });
+    }
+
+    updates();
+
+    function makeHTML (insertProducts){
+        var insertProductsHTML = '';
+        // console.log(inventory[1]);//verification
+        insertProducts.forEach(function(insertProduct){
+            // productsHTML +='<thead>';
+            // productsHTML +='<tr>';
+            // productsHTML +='<th>Title</th>';
+            // productsHTML +='<th>Quantity</th>';
+            // productsHTML +='<th>Price</th>';
+            // productsHTML +='<th>Categories</th>';
+            insertProductsHTML +='</tr>';
+            insertProductsHTML +='<tr>';
+            insertProductsHTML +='<td>' + insertProduct.title + '</td>';
+            insertProductsHTML +='<td>' + insertProduct.quantity + '</td>';
+            insertProductsHTML +='<td>' + insertProduct.categories + '</td>';
+            insertProductsHTML +='<td>' + insertProduct.price + '</td>';
+            insertProductsHTML +='</tr>';
+            // productsHTML +='</thead>';
+        });
+        return insertProductsHTML;
+    }
+
+    $('#update').click(updates);
+
+
+
+
+
+})();
+</script>
+
+
+
+</body></html>
+
+<!--NEEDS STYLE. WANTED TO MAKE FORMS TO ADD ITEMS TO JSON AND UPDATE LIST. EXERCISE COMPLETE.-->
