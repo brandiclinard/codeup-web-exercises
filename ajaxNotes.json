@@ -1,0 +1,17 @@
+[
+  {
+    "orderedNumber": 1,
+    "itemOrdered": "party shirt",
+    "orderedBy": "johnny"
+  },
+  {
+    "orderedNumber": 2,
+    "itemOrdered": "shorts",
+    "orderedBy": "cam"
+  },
+  {
+    "orderedNumber": 3,
+    "itemOrdered": "shoes",
+    "orderedBy": "billy"
+  }
+]

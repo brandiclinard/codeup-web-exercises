@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AJAX Lecture</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<!-- !! What are three ways to make a GET request? !! -->
+<!--     Can use get in the form, Links, ? can be placed into a url to make it a query and then place the stipulations such as username = jakeweary, type into the url -->
+
+
+<!--!! What are ways to make a POST request?!!-->
+<!--     to store it  via post form -->
+
+
+<!--https://request-inspector.glitch.me/-->
+
+<main class="container mt-5">
+    <h1 class="my-5">Intro to AJAX</h1>
+    <form method="POST" action="">
+        <div class="input-group">
+            <input placeholder="Enter username" class="form-control" type="text" name="username">
+        </div>
+        <button class="btn btn-success my-2">Submit</button>
+    </form>
+    <a href="">Some Link</a>
+</main>
+
+<script
+        src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        "use strict";
+        // simple request
+
+        // $.ajax('ajaxNotes.json'); // jQuery request object-- does not return the actual data
+
+        // $.ajax("ajaxNotes.json").done(function(responseData){
+        //     console.log(responseData);
+        // });// this does return the actual JSON array with the listed objects
+
+        // DOESN'T WORK
+        //     var responseData;
+        //     $.ajax('ajaxNotes.json').done(function(data) {
+        //         responseData = data;
+        //     }); // .done()
+        //
+        //     console.log(responseData);// this only shows what was originally in the variable.  Moving the console.log into the function will fix it and show the data. Problem is that you can not use the data results outside of the function because the return is not global.
+
+        // !! Why do you think this doesn't work? (to the class) !!
+        // simple API request
+
+
+        // $.ajax("https://swapi.co/api/people/1").done(function(data){
+        //     console.log(data.name);
+        // });
+
+        // !! What other kinds of web APIs would be helpful? !!
+        //-- any. you can manipulate all of the data as you like and update live. even census information to gather for data science.
+
+        // single argument with .done(), .fail() and .always() methods
+
+        // $.ajax({
+        //     "url": "https://swapi.co/api/films",
+        //     "type": "GET",
+        //     "data": {
+        //         "search": "A New Hope"
+        //     }
+        // }).done(function(data, status, jqXhr) {
+        //     // console.log(status);
+        //     console.log(data);
+        //     console.log("The director of Star Wars: A New Hope is..." + data.results[0].director);
+        // }).fail(function(jqXhr, status, error) {
+        //     console.log("Request failed! " + status);
+        // }).always(function() {
+        //     console.log("Request made.");
+        // });
+
+        // Url first argument and configuration object second argument
+        // $.ajax("https://swapi.co/api/films", {
+        //     "type": "GET",
+        //     "data": {
+        //         "search": "A New Hope"
+        //     }
+        // }).done(function(data) {
+        //     console.log("The director of Star Wars: A New Hope is..." + data.results[0].director);
+        // });//should have the .fail method but left off to keep simple for teaching sake.
+
+        // Storing returned jQuery XML HTTP Response object
+        // var jqXhr = $.ajax("https://swapi.co/api/films", {
+        //     "type": "GET",
+        //     "data": {
+        //         "search": "A New Hope"
+        //     }
+        // });
+        //
+        // console.log(jqXhr);
+        //
+        // jqXhr.done(function(data) {
+        //     console.log("The director of Star Wars: A New Hope is..." + data.results[0].director);
+        // });
+
+
+        // GET short-hand method (also a $.post method)
+        // $.get("https://swapi.co/api/films", {
+        //     "data": {
+        //         "search": "A New Hope"
+        //     }
+        // }).done(function(data) {
+        //     console.log("The director of Star Wars: A New Hope is..." + data.results[0].director);
+        // });
+
+        //Post short-hand method- more for gaining access to a site
+        $.post('https://hookb.in/8Pmx9qegbahXgXYxr1JE', {
+            data: {
+                username: "Fred",
+                password: "pass123"
+            }
+        }).done(function(data) {
+            console.log(data);
+        });
+    });
+</script>
+
+</body>
+</html>
+77  orders.html
+@@ -0,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders</title>
+    <link rel="shortcut icon" href="about:blank">
+
+    <style>
+        section {
+            background-color: cornsilk;
+            border: 2px solid black;
+            margin-bottom: 5px;
+            padding: 10px;
+        }
+        dt {
+            font-weight: bold;
+        }
+        dd {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Current Orders</h1>
+<div id="orders">
+    <!-- This HTML should be dynamically generated by JS -->
+    <!-- !! Why even put HTML here if we are going to replace it with JS? !! -->
+    <section>
+        <h3>Order #x</h3>
+        <dl>
+            <dt>Item Ordered</dt>
+            <dd>Such and such item</dd>
+            <dt>Ordered by</dt>
+            <dd>Ordered by such and such</dd>
+        </dl>
+    </section>
+</div>
+<button id="update">Update w/Ajax</button>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        "use strict";
+        function updatePage() {
+            // !! store jQuery request object to orders file in variable !!
+            // !! if a request is successful, log the data and pass the data into a call to buildHTML() !!
+            // !! if the request fails, log the jqXhr, status, and error
+        }
+        function buildHTML(orders) {
+            var ordersHTML = "";
+            // !! What JS method can be used to build HTML for all orders? !!
+            // !! How can the HTML be added to the DOM? !!
+        }
+        $('#update').click(updatePage);
+    });
+</script>
+</body>
+</html>
+
+<!--What is AJAX? ability to communicate with the server to send and receive data without a page refresh (often JSON) and once done, you can alter the result with DOM -->
+
+<!--What is JSON?  JS Object Notation, data transmission format-- stored as an object for easier manipulation ** CAN NOT PLACE METHODS INSIDE OF THIS **-->
+
+<!---->
