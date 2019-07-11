@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX Blog</title>
+
+<!--  Materialize link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Shadows+Into+Light|Permanent+Marker&display=swap" rel="stylesheet">
+
+    <style>
+        h1 {
+            font-family: 'Pacifico', cursive;
+        }
+
+        html {
+            font-family: 'Shadows Into Light', cursive;
+        }
+
+        button {
+            font-family: 'Permanent Marker', cursive;
+        }
+    </style>
+
+</head>
+<body class="pink">
+<div class = 'container'>
+    <div>
+        <h1 class="center-align">Welcome to Blog Posts!</h1>
+    </div>
+    <div class="center-align">
+        <button class="pulse pink lighten-3 btn-large purple-text" id="update">Update</button>
+    </div>
+    <div class='row' id = posts>
+        <div class="col s12 cards-container">
+
+
+    </div>
+    </div>
+
+<!--jQuery scripts-->
+<script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        'use strict';
+
+        function blogPosts(){
+            $.ajax('json/blog.json').done(function(data) {
+                console.log(data);// verification
+                var html = makeHTML(data);
+                $('#posts').html(html);
+            }).fail(function (jqXhr, status, error) {
+                console.log("Request failed! " + status);
+            }).always(function () {
+                console.log("Request made.");
+            });
+        }
+
+        blogPosts();
+
+        function makeHTML(posts){
+            var postsHTML = '';
+            // console.log(posts[1]);//verification
+            posts.forEach(function(post){
+                postsHTML += '<div class="card pink lighten-5">';
+                postsHTML += '<h3 class ="header">' + post.title + '</h3>';
+                postsHTML += '<h4>' + post.date + '</h4>';
+                postsHTML += '<p>' + post.content + '</p>';
+                postsHTML += '<div class="card-action">';
+                postsHTML += '<a href="#" class="purple-text"><h5>' + post.categories + '</a></h5>';
+                postsHTML += '</div>';
+                postsHTML += '</div>';
+                // postsHTML += '</div>';
+                // postsHTML += '<hr>';
+            });
+            postsHTML += '</div>';
+            return postsHTML;
+        }
+
+        $('#update').click(blogPosts);
+
+        var num = 2;
+
+
+    });
+</script>
+
+<!--Materialize JS-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>
