@@ -2,9 +2,179 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Mapbox Maps</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+<h1 class>My Favorite Restaurant!</h1>
+<button id="btn1">Zoom 5</button>
+<button id="btn2">Zoom 10</button>
+<button id="btn3">Zoom 15</button>
+<button id="btn4">My Favorite Restaurants</button>
+
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<!--MAPBOX GEOCODER METHODS-->
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+
+    //my code
+
+    // mapboxgl.accessToken = mapboxToken;
+    // var map = new mapboxgl.Map({
+    //     container: 'map',
+    //     style: 'mapbox://styles/mapbox/streets-v9',
+    //     zoom: 12,
+    //     center: [-98.4916, 29.4252]
+    // });
+
+    //-- RECOMMENDED CREATING A SEPARATE OBJECT TO PASS THROUGH THE FUNCTION
+    //-- THIS IS INSTRUCTOR CODE PRIOR TO REFACTORING FOR AN ARRAY
+    // mapboxgl.accessToken = mapboxToken;
+    // var sanAntonio;
+    // geocode('San Antonio, TX', mapboxToken).then(function(SATX){
+    //     var sanAntonio = SATX;
+    //     var mapOptions = {
+    //         center:sanAntonio,
+    //         zoom: 20,
+    //         style: 'mapbox://styles/mapbox/streets-v9',
+    //         container: "map"
+    //     };
+    //     var ourMap = new mapboxgl.Map(mapOptions);
+    //     ourMap.setZoom(15);
+    //
+    //     geocode("Original Blanco Cafe", mapboxToken).then(function(blancoCafe){
+    //         var popup1 = new mapboxgl.Popup()
+    //             .setHTML("Original Blanco Cafe")
+    //             .setLngLat(blancoCafe);
+    //             // .addTo(ourMap);
+    //
+    //         var marker1 = new mapboxgl.Marker({color:'orange'})
+    //             .setLngLat(blancoCafe)
+    //             .addTo(ourMap)
+    //             .setPopup(popup1);
+
+    mapboxgl.accessToken = mapboxToken;
+    var sanAntonio;
+    geocode('San Antonio, TX', mapboxToken).then(function(SATX){
+        var sanAntonio = SATX;
+        var mapOptions = {
+            center:sanAntonio,
+            zoom: 20,
+            style: 'mapbox://styles/mapbox/streets-v9',
+            container: "map"
+        };
+        var ourMap = new mapboxgl.Map(mapOptions);
+        ourMap.setZoom(15);
+
+        var favoriteRestaurants = [
+            {name: "Original Blanco Cafe"},
+            {name: "Pinch Boil House"},
+            {name: "Texas de Brazil"},
+            {name: "Lulu's Bakery"},
+            {name: "La Panaderia"},
+            {name: "Rainforest Cafe"}
+        ];
+
+        favoriteRestaurants.forEach(function(item){
+           geocode(item.name, mapboxToken).then(function(coord){
+               var popup1 = new mapboxgl.Popup()
+                   .setHTML(item.name)
+                   .setLngLat(coord);
+               // .addTo(ourMap);
+
+               var marker1 = new mapboxgl.Marker({color:'orange'})
+                   .setLngLat(coord)
+                   .addTo(ourMap)
+                   .setPopup(popup1);
+           })
+        });
+
+    //     geocode(place, mapboxToken).then(function(blancoCafe){
+    //         var popup1 = new mapboxgl.Popup()
+    //             .setHTML("Original Blanco Cafe")
+    //             .setLngLat(blancoCafe);
+    //         // .addTo(ourMap);
+    //
+    //         var marker1 = new mapboxgl.Marker({color:'orange'})
+    //             .setLngLat(blancoCafe)
+    //             .addTo(ourMap)
+    //             .setPopup(popup1);
+    //     })
+    // });
+
+
+    document.getElementById('btn1').addEventListener('click', function(){
+        map.setZoom(5);
+    });
+
+    document.getElementById('btn2').addEventListener('click', function(){
+        map.setZoom(10);
+    });
+
+    document.getElementById('btn3').addEventListener('click', function(){
+        map.setZoom(15);
+    });
+
+    //MY CODE PRIOR TO RUNNING AN ARRAY THROUGH- WORKED FOR ONE INDIVIDUAL LOCATION
+
+    // document.getElementById('btn4').addEventListener('click', function() {
+    //     geocode("Joe's Crab Shack, San Antonio, TX", mapboxToken).then(function (result) {
+    //         var marker = new mapboxgl.Marker()
+    //             .setLngLat(result)
+    //             .addTo(map);
+    //         map.on('click', function (){
+    //             var popup = new mapboxgl.Popup()
+    //                 .setLngLat(result)//popup appears over the actual building of business
+    //                 .setHTML("JOE'S CRAB SHACK")
+    //                 .addTo(map);
+    //             map.setZoom(18);
+    //             map.setCenter(result);
+    //         }); // will not appear unless marker is clicked on!!!!!!!
+    //     });
+    // });
+
+    var restaurants = ["Joe's Crab Shack, San Antonio, TX", "LuLu's Cafe, San Antonio, TX", "Texas De Brazil, San Antonio, TX"];
+
+    document.getElementById('btn4').addEventListener('click', function(){
+        restaurants.forEach(function(restaurant) {
+            geocode(restaurant, mapboxToken).then(function (result){
+                var marker = new mapboxgl.Marker()
+                    .setLngLat(result)
+                    .addTo(map);
+                map.on('click', function (){
+                    var popup = new mapboxgl.Popup()
+                        .setLngLat(result)
+                        .setHTML(restaurant)
+                        .addTo(map);
+                    map.setZoom(14);
+                    map.setCenter(result);
+                })
+            })
+        })
+    });
+
+
+//    Can the zoom be changed programmatically after the initial map is drawn?
+//    -- Yes it can.  You just have to add it into a function and call the function.  The event listeners I have placed on the zoom buttons are a good example of how I have my zoom being altered even after the map was created.
+</script>
 </body>
 </html>
+
+<!--EXERCISE COMPLETE.  NEED TO FIND WAY TO MAKE BUTTON GO  BACK TO ORIGINAL WHEN CLICKED ON FOR RESTAURANTS SO THAT YOU CAN GO BACK AND VIEW THE OTHER RESTAURANTS SINCE THE MAP DOES NOT ALLOW FOR SCROLL VIEWING. PENDING WALK THROUGH.-->
