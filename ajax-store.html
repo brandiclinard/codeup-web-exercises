@@ -2,39 +2,75 @@
 <!-- saved from url=(0059)https://java.codeup.com/examples/javascript/ajax-store.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Online Store</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600|Special+Elite&display=swap" rel="stylesheet">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <style>
+        html {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+        }
+
+        h1, button {
+            font-family: 'Special Elite', cursive;
+            margin-top: 20px;
+        }
+
+        h1{
+            padding-top: 30px;
+        }
+    </style>
+
 </head>
-<body>
+<body class="orange lighten-4">
 
-<h1>My Tool Store</h1>
+<div class="row">
 
-<!--    <h3>Add to Inventory</h3>-->
-<!--    <hr>-->
+    <div class="container section col s9 center-align">
+        <h1 class="container brown-text text-darken-5 ">My Tool Store</h1>
+    </div>
 
-<!--<form action="inventory.json" method="POST" name="updates">-->
-<!--    Title:-->
-<!--    <input type="text" name="title" id="title">-->
-<!--    Quantity:-->
-<!--    <input type="text" name="quantity" id="quantity">-->
-<!--    Price:-->
-<!--    <input type="text" name="price" id="price">-->
-<!--    Categories:-->
-<!--    <input type="text" name="categories" id="categories">-->
-   <button id="update">Refresh</button>
+    <!--    <h3>Add to Inventory</h3>-->
+    <!--    <hr>-->
+
+    <!--<form action="inventory.json" method="POST" name="updates">-->
+    <!--    Title:-->
+    <!--    <input type="text" name="title" id="title">-->
+    <!--    Quantity:-->
+    <!--    <input type="text" name="quantity" id="quantity">-->
+    <!--    Price:-->
+    <!--    <input type="text" name="price" id="price">-->
+    <!--    Categories:-->
+    <!--    <input type="text" name="categories" id="categories">-->
+    <div class="container section col s3">
+        <div class="section">
+        <button class='brown-text text-darken-2 red accent-2 section btn-large waves-effect waves-yellow'  id="update">Refresh</button>
+        </div>
+    </div>
+
+</div>
 <!--</form>-->
 
-<hr>
 
-<table id="products">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
-        </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-</table>
+
+<div>
+    <table class='container z-depth-5 amber accent-3 striped centered' id="products">
+        <thead>
+            <tr class="red-text text-darken-3">
+                <th class="col s3">Title</th>
+                <th class="col s3">Quantity</th>
+                <th class="col s3">Price</th>
+                <th class="col s3">Categories</th>
+            </tr>
+        </thead>
+        <tbody id="insertProducts"></tbody>
+    </table>
+</div>
 
 <!--jQuery-->
 <script type="text/javascript"
@@ -80,7 +116,7 @@
 
 
     function updates () {
-        var request = $.ajax("inventory.json");
+        var request = $.ajax("json/inventory.json");
         // console.log(request);// verification
         request.done(function(data){
             // console.log(data);//verification
@@ -101,20 +137,12 @@
         var insertProductsHTML = '';
         // console.log(inventory[1]);//verification
         insertProducts.forEach(function(insertProduct){
-            // productsHTML +='<thead>';
-            // productsHTML +='<tr>';
-            // productsHTML +='<th>Title</th>';
-            // productsHTML +='<th>Quantity</th>';
-            // productsHTML +='<th>Price</th>';
-            // productsHTML +='<th>Categories</th>';
-            insertProductsHTML +='</tr>';
-            insertProductsHTML +='<tr>';
+            insertProductsHTML +='<tr class="brown-text text-darken-4">';
             insertProductsHTML +='<td>' + insertProduct.title + '</td>';
             insertProductsHTML +='<td>' + insertProduct.quantity + '</td>';
-            insertProductsHTML +='<td>' + insertProduct.categories + '</td>';
             insertProductsHTML +='<td>' + insertProduct.price + '</td>';
+            insertProductsHTML +='<td>' + insertProduct.categories + '</td>';
             insertProductsHTML +='</tr>';
-            // productsHTML +='</thead>';
         });
         return insertProductsHTML;
     }
@@ -128,8 +156,11 @@
 })();
 </script>
 
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
-</body></html>
+</body>
+</html>
 
-<!--NEEDS STYLE. WANTED TO MAKE FORMS TO ADD ITEMS TO JSON AND UPDATE LIST. EXERCISE COMPLETE.-->
+<!--STYLED WITH MATERIALIZE.-->
