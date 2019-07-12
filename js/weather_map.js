@@ -24,7 +24,7 @@ updatePage();
         $( "#today" )
             // .append("<p> Date:" + new Date(data.daily.data[0].time * 1000) + "</p>")// date
             .append('<p>' + data.daily.data[0].summary + '</p>') //summary
-            .append("<p>" + (Math.round(data.daily.data[0].temperatureMax)) + "℉/" + (Math.round(data.daily.data[0].temperatureMin)) + "℉ </p>")//temp
+            .append("<p>" + (Math.round(data.daily.data[0].temperatureMax)) + "/" + (Math.round(data.daily.data[0].temperatureMin)) + "</p>")//temp
             .append('<p>' + Math.round((data.daily.data[0].precipProbability) * 100) + '% chance of ' + data.daily.data[0].precipType + '.</p>')// precip type and percent
             .append('<p> Winds at ' + Math.round(data.daily.data[0].windSpeed) + ' kph </p>')
     }, "json" );
@@ -33,7 +33,7 @@ updatePage();
         $( "#tomorrow" )
             // .append("<p> Date:" + new Date(data.daily.data[1].time * 1000) + "</p>")// date
             .append('<p>' + data.daily.data[1].summary + '</p>') //summary
-            .append("<p>" + (Math.round(data.daily.data[1].temperatureMax)) + "℉/" + (Math.round(data.daily.data[1].temperatureMin)) + "℉ </p>")//temp
+            .append("<p>" + (Math.round(data.daily.data[1].temperatureMax)) + "/" + (Math.round(data.daily.data[1].temperatureMin)) + " </p>")//temp
             .append('<p>' + Math.round((data.daily.data[1].precipProbability) * 100) + '% chance of ' + data.daily.data[1].precipType + '.</p>')// precip type and percent
             .append('<p> Winds at ' + Math.round(data.daily.data[1].windSpeed) + ' kph </p>')
     }, "json" );
@@ -42,14 +42,14 @@ updatePage();
         $( "#future" )
             // .append("<p> Date:" + new Date(data.daily.data[2].time * 1000) + "</p>")// date
             .append('<p>' + data.daily.data[2].summary + '</p>') //summary
-            .append("<p>" + (Math.round(data.daily.data[2].temperatureMax)) + "℉/" + (Math.round(data.daily.data[2].temperatureMin)) + "℉ </p>")//temp
+            .append("<p>" + (Math.round(data.daily.data[2].temperatureMax)) + "/" + (Math.round(data.daily.data[2].temperatureMin)) + " </p>")//temp
             .append('<p>' + Math.round((data.daily.data[2].precipProbability) * 100) + '% chance of ' + data.daily.data[2].precipType + '.</p>')// precip type and percent
             .append('<p> Winds at ' + Math.round(data.daily.data[2].windSpeed) + ' kph </p>')
     }, "json" );
 
 
     var weatherArray = [
-        {status: "clear-day", image: '/icon/clearDay.png'},
+        {status: "clear-day", image: 'icon/clearDay.png'},
         {status: "clear-night", image: 'icon/clearNight.ico'},
         {status: "rain", image:'icon/rain.png'},
         {status: "snow", image:'icon/snow.png'},
@@ -148,8 +148,38 @@ updatePage();
                 .append('<p><img class="responsive-img" src="' + result + '"></p>')
 
         }, "json");
-    };
+    }
+
     icon2();
+
+    // var latInput = $("#lat").val();
+    //
+    // var longInput = $('#long').val();
+
+
+
+    // function search (e) {
+    //     e.preventDefault();
+    //     console.log('yay');
+    //     console.log(latInput);
+    //     console.log(longInput);
+    // }
+
+  $('#submit').click(function search (e) {
+        e.preventDefault();
+      var latInput = $("#lat").val();
+      var longInput = $('#long').val();
+      $.get( "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/" + latInput + "," + longInput, function( data ) {
+          console.log('yay');
+          console.log(latInput);
+          console.log(longInput);
+          console.log(data);
+      });
+    });
+
+
+
+
 // function todayMakeHTML(today){
 //     var todayHTML = '';
 //     var dateObject = new Date(data.currently.time * 1000);//alter index to get dates for next three days

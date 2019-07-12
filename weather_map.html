@@ -25,15 +25,36 @@
     <div class="row center-align">
        <h1 class = "white-text">Weather!</h1>
     </div>
-    <div class="row"></div>
     <div class="row">
-        <div class="card col s4 z-depth-3" id="today"></div>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s5">
+                    <input placeholder="Latitude" id="lat" type="text" class="validate white-text">
+                    <label for="lat"></label>
+                </div>
+                <div class="input-field col s5">
+                    <label for="long"></label>
+                    <input placeholder="Longitude" id="long" type="text" class="validate white-text" name="long">
+                </div>
+                <button type="submit" class="col s2 waves-effect waves-light btn-large validate" id="submit">Submit</button>
+            </div>
+        </form>
     </div>
     <div class="row">
-        <div class="card col s4 z-depth-3" id="tomorrow"></div>
-    </div>
-    <div class="row">
-        <div class="card col s4 z-depth-3" id="future"></div>
+        <div class="col s12">
+            <div class="row">
+                <div class="card col s4 z-depth-3" id="today"></div>
+            </div>
+            <div class="row">
+                <div class="card col s4 z-depth-3" id="tomorrow"></div>
+            </div>
+            <div class="row">
+                <div class="card col s4 z-depth-3" id="future"></div>
+            </div>
+        </div>
+        <div class="col" id="map">
+
+        </div>
     </div>
 
 
