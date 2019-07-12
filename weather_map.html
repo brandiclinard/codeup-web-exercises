@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <meta charset="UTF-8">-->
+    <title>WEATHER</title>
+<!--    materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        body{
+            background-image: url('http://31.media.tumblr.com/fb2a8a0bd46042ed919adeb359238a7b/tumblr_n5v2wkNGle1rk4ewwo1_500.jpg');
+            background-size: cover;
+            height: auto;
+            width: auto;
+            background-position: center;
+        }
+
+        card{
+            opacity: 0.2;
+        }
+    </style>
+
+</head>
+<body class="container">
+    <div class="row center-align">
+       <h1 class = "white-text">Weather!</h1>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <div class="card col s4 z-depth-3" id="today"></div>
+    </div>
+    <div class="row">
+        <div class="card col s4 z-depth-3" id="tomorrow"></div>
+    </div>
+    <div class="row">
+        <div class="card col s4 z-depth-3" id="future"></div>
+    </div>
+
+
+
+
+
+
+
+<!--JQUERY-->
+<script src="js/jquery.js"></script>
+<!--AJAX-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--KEYS-->
+<script src="js/keys.js"></script>
+<!--JS-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="js/weather_map.js"></script>
+
+</body>
+</html>
