@@ -40,9 +40,9 @@
 
     <script>
     $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/29.4241,-98.4936").done(function(data){
-        console.log(data);
-        var dateObject = new Date(data.currently.time * 1000);
-        console.log(dateObject);
+        console.log(data.daily.data);
+        // var dateObject = new Date(data.currently.time * 1000);
+        // console.log(dateObject);
     });
     </script>
 </div>
@@ -211,13 +211,15 @@
 <!--        function updatePage() {-->
 
 <!--            // !! store jQuery request object to orders file in variable !!-->
-<!--            var request = $.ajax('./json/ajaxNotes.json');-->
 
+<!--            var request = $.ajax('./json/ajaxNotes.json');-->
 <!--            // console.log(request);// use to verify-->
 
 <!--            // !! if a request is successful, log the data and pass the data into a call to buildHTML() !!-->
+
 <!--            request.done(function(data){-->
 <!--                // console.log(data);// used to verify-->
+
 <!--               var html = buildHTML(data);-->
 <!--               //will eventually take variable and update the document (this is a string)-->
 
