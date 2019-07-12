@@ -152,10 +152,34 @@ updatePage();
 
     icon2();
 
-    $('.form').on( "submit", function( event ) {
-        event.preventDefault();
-        console.log( $( this ).serialize() );
+    // var latInput = $("#lat").val();
+    //
+    // var longInput = $('#long').val();
+
+
+
+    // function search (e) {
+    //     e.preventDefault();
+    //     console.log('yay');
+    //     console.log(latInput);
+    //     console.log(longInput);
+    // }
+
+  $('#submit').click(function search (e) {
+        e.preventDefault();
+      var latInput = $("#lat").val();
+      var longInput = $('#long').val();
+      $.get( "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/" + latInput + "," + longInput, function( data ) {
+          console.log('yay');
+          console.log(latInput);
+          console.log(longInput);
+          console.log(data);
+      });
     });
+
+
+
+
 // function todayMakeHTML(today){
 //     var todayHTML = '';
 //     var dateObject = new Date(data.currently.time * 1000);//alter index to get dates for next three days
