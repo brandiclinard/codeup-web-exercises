@@ -3,9 +3,17 @@
 <head>
 <!--    <meta charset="UTF-8">-->
     <title>WEATHER</title>
-<!--    materialize -->
+
+<!--  MAPBOX  -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
+
+    <!--    materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />-->
+
     <style>
         body{
             background-image: url('http://31.media.tumblr.com/fb2a8a0bd46042ed919adeb359238a7b/tumblr_n5v2wkNGle1rk4ewwo1_500.jpg');
@@ -18,6 +26,14 @@
         card{
             opacity: 0.2;
         }
+
+        #map { position: top:0; bottom:0; width:100%; }
+
+        #geocoder-container > div {
+            min-width:80%;
+            margin-left:25%;
+        }
+
     </style>
 
 </head>
@@ -41,21 +57,20 @@
         </form>
     </div>
     <div class="row">
-        <div class="col s12">
+        <div class="col s4">
             <div class="row">
-                <div class="card col s4 z-depth-3" id="today"></div>
+                <div class="card col s12 z-depth-3" id="today"></div>
             </div>
             <div class="row">
-                <div class="card col s4 z-depth-3" id="tomorrow"></div>
+                <div class="card col s12 z-depth-3" id="tomorrow"></div>
             </div>
             <div class="row">
-                <div class="card col s4 z-depth-3" id="future"></div>
+                <div class="card col s12 z-depth-3" id="future"></div>
             </div>
         </div>
-        <div class="col" id="map">
-
-        </div>
+            <div class="col s8" id='map' style='width: 660px; height: 1575px'></div>
     </div>
+    <div class="row"></div>
 
 
 
@@ -68,10 +83,14 @@
 <!--AJAX-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!--KEYS-->
-<script src="js/keys.js"></script>
 <!--JS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="js/weather_map.js"></script>
+    <script src="js/keys.js"></script>
+
 
 </body>
 </html>
