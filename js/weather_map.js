@@ -43,10 +43,10 @@ $(document).ready(function(){
             type: "image",
             url: getPath(),
             coordinates: [
-                [-80.425, 46.437],
+                [-98.4936, 29.4241],
                 [-71.516, 46.437],
                 [-71.516, 37.936],
-                [-80.425, 37.936]
+                [-98.4936, 29.4241]
             ]
         });
         map.addLayer({
@@ -73,7 +73,7 @@ $(document).ready(function(){
 
 
 
-    geocoder.on('result', function(ev) {
+    geocoder.on('result', function(ev) {// change the result to san antonio texas to hard code in start point// re do the geocoder.on to repopulate searched results
         map.getSource('single-point').setData(ev.result.geometry);
         var geoLat =  ev.result.geometry.coordinates[1];
         var geoLong = ev.result.geometry.coordinates[0];
@@ -111,10 +111,10 @@ $(document).ready(function(){
             var i = 0;
                 for (i = 0; i <= 2; i++) {
                     html += '<div class="weather card col s4">';
-                    html += '<h3> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h3>';
-                    html += '<h2>' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h2>';
-                    html += '<h4>' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h4>';
-                    html += '<h4>Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h4>';
+                    html += '<h4> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h4>';
+                    html += '<h3>' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
+                    html += '<h5>' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';
+                    html += '<h5>Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h5>';
                     html += '<img class="responsive-img" src="' + findImage(weatherArray) + '">';
                     html += '</div>'
                 }
@@ -200,7 +200,6 @@ $(document).ready(function(){
     // }
     //
     // updatePage();
-
 
 
 
