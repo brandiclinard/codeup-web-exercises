@@ -64,12 +64,26 @@ $(document).ready(function(){
         }, 200);
     });
 
-    var geocoder = new MapboxGeocoder({ // Initialize the geocoder
-        accessToken: mapboxgl.accessToken, // Set the access token
-        mapboxgl: mapboxgl, // Set the mapbox-gl instance
-        marker: false // Do not use the default marker style
 
-    });
+    // var marker = new mapboxgl.Marker({ // Initialize a new marker
+    //     draggable: true
+    // })
+    //     .setLngLat([0, 0]) // Marker [lng, lat] coordinates
+    //     .addTo(map); // Add the marker to the map
+    //
+    // function onDragEnd() {
+    //     var lngLat = marker.getLngLat();
+    //     coordinates.style.display = 'block';
+    //     coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    // }
+    //
+    // marker.on('dragend', onDragEnd);
+    // var geocoder = new MapboxGeocoder({ // Initialize the geocoder
+    //     accessToken: mapboxgl.accessToken, // Set the access token
+    //     mapboxgl: mapboxgl, // Set the mapbox-gl instance
+    //     marker: false // Do not use the default marker style
+    //
+    // });
 
 
 
@@ -78,10 +92,6 @@ $(document).ready(function(){
         var geoLat =  ev.result.geometry.coordinates[1];
         var geoLong = ev.result.geometry.coordinates[0];
         console.log(geoLat, geoLong);
-
-        var marker = new mapboxgl.Marker() // Initialize a new marker
-        .setLngLat([geoLong, geoLat]) // Marker [lng, lat] coordinates
-        .addTo(map); // Add the marker to the map
 
 
 
@@ -110,7 +120,7 @@ $(document).ready(function(){
             var html = "";
             var i = 0;
                 for (i = 0; i <= 2; i++) {
-                    html += '<div class="weather card col s4">';
+                    html += '<div class="weather card col s3">';
                     html += '<h4> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h4>';
                     html += '<h3>' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
                     html += '<h5>' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';

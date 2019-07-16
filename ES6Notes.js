@@ -129,6 +129,8 @@ console.log(square(z));
 
 const square2 = (z) => {return z * z};
 console.log(square2(z));
+//can remove () to make it shorter
+
 
 /*
     DEFAULT FUNCTION PARAMETER VALUES
@@ -146,8 +148,8 @@ console.log(myGreeting());
 console.log(myGreeting("Hello", "Sophie"));
 
 //new way
-const myGreeting2 = (name ="") => `Good Morning, ${name}`;
-
+const myGreeting2 = (name ="Brandi") => `Good Morning, ${name}`;
+console.log(myGreeting2());
 console.log(myGreeting2('Betelgeuse'));
 
 /*
@@ -173,6 +175,7 @@ const pals2 = {
     mouse
 };
 console.log(pals2);
+
 
 /*
     OBJECT DESTRUCTURING
@@ -200,9 +203,9 @@ carInfo(myCar);
 
 
 //new way
-const myCar2 = {make, model, color};
+const myCar2 = {make, model};
 
-function carInfo2 ({make, model, color}){
+function carInfo2 (make, model){
     console.log(make);
     console.log(model);
 }
@@ -215,6 +218,13 @@ carInfo2(myCar2);
      file? Use Array Destructuring to return the first 3 instructors. Use
       the curriculum example as a reference.
  */
+const [c,d,e] = instructors;
+console.log(c, d, e);
+
+
+
+
+
 // Collapse
 
 
