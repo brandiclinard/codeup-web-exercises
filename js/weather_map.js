@@ -2,7 +2,6 @@ $(document).ready(function(){
     'use strict';
 
 
-
     var weatherArray = [
         {status: "clear-day", image: 'icon/clearDay.png'},
         {status: "clear-night", image: 'icon/clearNight.ico'},
@@ -16,8 +15,8 @@ $(document).ready(function(){
         {status: "partly-cloudy-night", image:'icon/partlyCloudyNight.png'}
     ];
 
-
     //--MAPBOX--
+
 
 
     mapboxgl.accessToken = mapboxToken;
@@ -64,13 +63,20 @@ $(document).ready(function(){
             var html = "";
             var i = 0;
             for (i = 0; i <= 4; i++) {
-                html += '<div class="weather card col-2 m-3">';
+                html += '<div class="weather card mx-4 my-3">';
+                html += '<div class="card-header">';
                 html += '<h4> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h4>';
-                html += '<h3>' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
-                html += '<h5>' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';
-                html += '<h5>Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h5>';
+                html += '</div>';
+                html += '<div class="card-body" id="daily">';
+                html += '<h3 class = "card-title">' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
+                html += '<h5 class = "card-text">' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';
+                html += '<h5 class = "card-text">Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h5>';
+                html += '<div class="text-center">';
                 html += '<img class="img-fluid" src="' + findImage(weatherArray) + '" alt="icon">';
                 html += '</div>';
+                html += '</div>';
+                html += '</div>';
+
             }
             return html
         }
@@ -135,12 +141,6 @@ $(document).ready(function(){
         var geoLong = ev.result.geometry.coordinates[0];
         console.log(geoLat, geoLong);
 
-        // var marker = new mapboxgl.Marker() // Initialize a new marker
-        // .setLngLat([geoLong, geoLat]) // Marker [lng, lat] coordinates
-        // .addTo(map); // Add the marker to the map
-
-
-
 
         function posts (data) {
             function findImage() {
@@ -166,13 +166,19 @@ $(document).ready(function(){
             var html = "";
             var i = 0;
                 for (i = 0; i <= 4; i++) {
-                    html += '<div class="weather card col-2 m-3">';
+                    html += '<div class="weather card mx-4 my-3">';
+                    html += '<div class="card-header">';
                     html += '<h4> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h4>';
-                    html += '<h3>' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
-                    html += '<h5>' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';
-                    html += '<h5>Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h5>';
-                    html += '<img class="responsive-img" src="' + findImage(weatherArray) + '">';
-                    html += '</div>'
+                    html += '</div>';
+                    html += '<div class="card-body" id="daily">';
+                    html += '<h3 class = "card-title">' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
+                    html += '<h5 class = "card-text">' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';
+                    html += '<h5 class = "card-text">Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h5>';
+                    html += '<div class="text-center">';
+                    html += '<img class="img-fluid" src="' + findImage(weatherArray) + '" alt="icon">';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
                 }
                 return html
         }
