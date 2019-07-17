@@ -8,25 +8,25 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
 
     <!--    materialize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <!--    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />-->
 
     <style>
-        body{
-            background-image: url('http://31.media.tumblr.com/fb2a8a0bd46042ed919adeb359238a7b/tumblr_n5v2wkNGle1rk4ewwo1_500.jpg');
-            background-size: cover;
-            height: auto;
-            width: auto;
-            background-position: center;
-        }
+        /*body{*/
+        /*    background-image: url('http://31.media.tumblr.com/fb2a8a0bd46042ed919adeb359238a7b/tumblr_n5v2wkNGle1rk4ewwo1_500.jpg');*/
+        /*    background-size: cover;*/
+        /*    height: auto;*/
+        /*    width: auto;*/
+        /*    background-position: center;*/
+        /*}*/
 
-        card{
-            opacity: 0.2;
-        }
+        img{
+            height: 10rem;
+            width: 10rem;
 
+        }
 
 
         #geocoder-container > div {
@@ -37,18 +37,26 @@
     </style>
 
 </head>
-<body class="">
-    <div class="row center-align">
-       <h1 class = "white-text">Weather!</h1>
-    </div>
-    <div class="row center-align" id="today">
-
-
-
-    </div>
-    <div class="row">
-        <div class="col s12" id='map' style='width: 95rem; height: 30rem'></div>
-    </div>
+<body>
+    <section>
+        <div class="container">
+            <div class = "row">
+                <div class = "col-12">
+           <h1 class ="separator centered blue">Weather!</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row ml-5" id="today"></div>
+    </section>
+    <section>
+        <div class="container col-11">
+            <div class="row">
+                <div class="card" id='map' style='width: 90rem; height: 30rem'></div>
+            </div>
+        </div>
+    </section>
 
 
 
@@ -62,10 +70,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!--KEYS-->
 <!--JS-->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.min.js'></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="js/weather_map.js"></script>
 <!--    <script src="js/weather.js"></script>-->
     <script src="js/keys.js"></script>
