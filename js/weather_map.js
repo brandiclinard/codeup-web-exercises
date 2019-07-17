@@ -65,7 +65,7 @@ $(document).ready(function(){
             var html = "";
             var i = 0;
             for (i = 0; i <= 4; i++) {
-                html += '<div class="weather card mx-4 my-3">';
+                html += '<div class="weather card mx-3 my-3">';
                 html += '<div class="card-header">';
                 html += '<h4> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h4>';
                 html += '</div>';
@@ -173,7 +173,7 @@ $(document).ready(function(){
             var html = "";
             var i = 0;
                 for (i = 0; i <= 4; i++) {
-                    html += '<div class="weather card mx-4 my-3">';
+                    html += '<div class="weather card mx-3 my-3">';
                     html += '<div class="card-header">';
                     html += '<h4> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h4>';
                     html += '</div>';
