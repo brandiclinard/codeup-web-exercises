@@ -29,6 +29,8 @@ $(document).ready(function(){
         center: [-98.4936, 29.4241]
     });
 
+
+
     var frameCount = 5;
     var currentImage = 0;
 
@@ -103,10 +105,10 @@ $(document).ready(function(){
             type: "image",
             url: getPath(),
             coordinates: [
-                [-98.4936, 29.4241],
-                [-71.516, 46.437],
-                [-71.516, 37.936],
-                [-98.4936, 29.4241]
+                [-104.8984452, 38.875868 ],
+                [-90.393898, 38.875868 ],
+                [-90.393898, 24.838930],
+                [-104.8984452, 24.838930]
             ]
         });
         map.addLayer({
@@ -121,13 +123,18 @@ $(document).ready(function(){
         setInterval(function() {
             currentImage = (currentImage + 1) % frameCount;
             map.getSource("radar").updateImage({ url: getPath() });
-        }, 200);
+        }, 1000);
     });
+
+
 
     var geocoder = new MapboxGeocoder({ // Initialize the geocoder
         accessToken: mapboxgl.accessToken, // Set the access token
         mapboxgl: mapboxgl, // Set the mapbox-gl instance
-        marker: false // Do not use the default marker style
+        marker: // Do not use the default marker style
+            {
+                draggable: true
+            }
 
     });
 
@@ -209,6 +216,7 @@ $(document).ready(function(){
 
 
 
+
     // Add the geocoder to the map
     map.addControl(geocoder);
 
@@ -241,35 +249,15 @@ $(document).ready(function(){
             var geoLat =  ev.result.geometry.coordinates[1];
             var geoLong = ev.result.geometry.coordinates[0];
         });
-    })
+    });
 
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    }
 
-//    --WEATHER--
-
-    // function updatePage(){
-    //     var jqxhr = $.getJSON(("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/29.4241,-98.4936"), function(){
-    //         console.log( "success" );
-    //     });
-    //     jqxhr.done(function() {
-    //         console.log(jqxhr);
-    //     })
-    //         .fail(function() {
-    //             alert( "error" );
-    //         })
-    //         .always(function() {
-    //             console.log( "finished" );
-    //         });
-    // }
-    //
-    // updatePage();
-
-
-
-
-
-
-
-
+    marker.on('dragend', onDragEnd);
 
 
 

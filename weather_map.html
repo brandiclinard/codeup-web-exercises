@@ -10,7 +10,9 @@
     <!--    materialize -->
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.1/mapbox-gl-geocoder.css' type='text/css' />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Tauri&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <style>
         body{
@@ -26,17 +28,26 @@
             background-position: center;
             text-shadow: 2px 2px black;
             color: coral;
+            font-family: 'Fredericka the Great', cursive;;
         }
 
         .card-header{
 
             background-image: url("https://thumbs.gfycat.com/GleefulSphericalBluemorphobutterfly-size_restricted.gif");
+            text-shadow: 2px 2px white;
+            font-family: 'Tauri', sans-serif;
+
         }
         .card-body{
             background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5c-zE0ojh36_adPrj1lwJZfch2o9lyN43vYuuL9-CrHzacAIN');
             background-size: cover;
             color: white;
             text-shadow: 2px 2px black;
+            font-family: 'Tauri', sans-serif;
+
+        }
+        .card{
+            box-shadow: 2px 2px black;
         }
 
         img{
@@ -58,13 +69,13 @@
         <div class="container">
             <div class = "row">
                 <div class = "col-12">
-           <h1 class ="text-right font-weight-bold">Word Wide Weather Map</h1>
+           <h1 class ="text-right ">Word Wide Weather Map</h1>
                 </div>
             </div>
         </div>
     </section>
     <section>
-        <div class="row ml-5 pl-3" id="today"></div>
+        <div class="row ml-3" id="today"></div>
     </section>
     <section>
         <div class="container col-11">
