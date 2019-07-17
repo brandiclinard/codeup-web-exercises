@@ -224,12 +224,20 @@ console.log(c, d, e);
 
 
 
+//rewrite this as an arrow function
+//give greeting a default value of "Good Morning"
+//give cohort a default value of "Betelgeuse"
+//rewrite the return to use template strings instead of concatenation
 
-// Collapse
+function goodMorning(greeting,cohort){
+    return greeting + " " + cohort + "!";
+}
 
+console.log(goodMorning());
+console.log(goodMorning(greeting, "Ceres"));
 
+const goodMorning2 = (word1 = 'Good Morning', word2 = "Betelgeuse") => {return `${word1} ${word2}!`};
 
-// Message Input
-
-
-// Message betelgeuse
+console.log(goodMorning2());
+console.log(goodMorning2(undefined, "Ceres"));
+// you have to redefine inside of the function if you are using the same variable outside of the function.  It will not 'leak' into the function.  undefined is used outside of the function because the defined variable does not 'leak' into the called function that is coming since we do not want to alter the first parameter but only the second. by calling undefined we can skip over that one and alter the second.
