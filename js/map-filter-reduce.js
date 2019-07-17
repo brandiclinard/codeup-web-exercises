@@ -45,9 +45,7 @@ const usersEmailAddress = users.map(user => user.email);
 console.log(usersEmailAddress);
 
     /**Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.**/
-const usersTotalYearsOfExperience = users.reduce(function(sum, current){
-    return sum + current.yearsOfExperience
-    },0);
+const usersTotalYearsOfExperience = users.reduce((sum, current) => sum + current.yearsOfExperience,0);
 console.log(usersTotalYearsOfExperience);
 
 
@@ -55,11 +53,10 @@ const usersAvgYearsOfExperience = function(){
    return usersTotalYearsOfExperience / users.length;
 };
 console.log(usersAvgYearsOfExperience());
-console.log(users.length);
 
 /**Use .reduce to get the longest email from the list of users.**/
 const userLongestEmail = users.reduce(function(previous, current){
-    currentEmail = current.email;
+    const currentEmail = current.email;
     if(currentEmail.length > previous.length){
         return currentEmail
     }else{
@@ -69,6 +66,45 @@ const userLongestEmail = users.reduce(function(previous, current){
 console.log(userLongestEmail);
 
     /**Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.**/
-    const usersSingleString
+//     const usersSingleString = users.map(function(user){
+//         return user.name;
+//     });
+//     console.log(usersSingleString);
+//
+// const reduceValue = usersSingleString.reduce(function(previous, current, index, array){
+//     const last = function(){
+//         const l = indexOf(array.length - 1);
+//         return l`.`
+//     };
+//     return previous + current + ', ';
+// },`Your instructors are: `);
+// console.log(reduceValue);
 
-    /**BONUS: Use .reduce to get the unique list of languages from the list of users.**/
+const yourInstructors = users.reduce(function(sentence, instructor, index, array){
+    if(index === (array.length - 1)){
+        return `${sentence}${instructor.name}. `;
+    }else {
+        return `${sentence}${instructor.name}, `;
+    }
+},'Your instructors are: ');
+
+console.log(yourInstructors);
+/**BONUS: Use .reduce to get the unique list of languages from the list of users.**/
+// const usersListOfLanguages = users.reduce(function(previous, current){
+//     const list = [];
+//     const language = current.languages;
+//     if(language !== previous){
+//          return list.push(previous);
+//     }
+// },'');
+//
+// console.log(usersListOfLanguages);
+
+const uniqueLanguages = users.reduce(function(prev, current){
+    const langs = current.languages;
+    for(const lang of langs){
+        prev.add(lang)
+    }
+    return prev;
+},new Set);
+console.log(uniqueLanguages);
