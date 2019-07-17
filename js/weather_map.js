@@ -2,7 +2,6 @@ $(document).ready(function(){
     'use strict';
 
 
-
     var weatherArray = [
         {status: "clear-day", image: 'icon/clearDay.png'},
         {status: "clear-night", image: 'icon/clearNight.ico'},
@@ -16,8 +15,8 @@ $(document).ready(function(){
         {status: "partly-cloudy-night", image:'icon/partlyCloudyNight.png'}
     ];
 
-
     //--MAPBOX--
+
 
 
     mapboxgl.accessToken = mapboxToken;
@@ -30,6 +29,8 @@ $(document).ready(function(){
         center: [-98.4936, 29.4241]
     });
 
+
+
     var frameCount = 5;
     var currentImage = 0;
 
@@ -39,14 +40,75 @@ $(document).ready(function(){
 
     map.on('load', function() {
 
+        function posts (data) {
+            function findImage() {
+                var result = 0;
+                var newArray = [];
+                var weather = String(data.daily.data[0].icon);
+                console.log(weather);
+                newArray = weatherArray.map(function (obj) {
+                    return obj.status
+                });
+                console.log(newArray);
+                var condition = Number(newArray.indexOf(weather));
+                console.log(condition);
+                var imageArray = [];
+                imageArray = weatherArray.map(function (obj) {
+                    return obj.image;
+                });
+                console.log(imageArray);
+                result = imageArray[condition];
+                console.log(result);
+                return result;
+            }
+
+            var html = "";
+            var i = 0;
+            for (i = 0; i <= 4; i++) {
+                html += '<div class="weather card mx-4 my-3">';
+                html += '<div class="card-header">';
+                html += '<h4> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h4>';
+                html += '</div>';
+                html += '<div class="card-body" id="daily">';
+                html += '<h3 class = "card-title">' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
+                html += '<h5 class = "card-text">' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';
+                html += '<h5 class = "card-text">Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h5>';
+                html += '<div class="text-center">';
+                html += '<img class="img-fluid" src="' + findImage(weatherArray) + '" alt="icon">';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+
+            }
+            return html
+        }
+
+        $.get("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/" + '29.4241' + "," + '-98.4936', {
+            daily: {
+                data: {
+                    temperatureMax: "",
+                    temperatureMin: "",
+                    precipProbability: "",
+                    precipType: "",
+                    windSpeed: ""
+                }
+            }
+        }).done(function (data) {
+
+            console.log(data);
+            $('#today').html(posts(data));
+        });
+
+
+
         map.addSource("radar", {
             type: "image",
             url: getPath(),
             coordinates: [
-                [-98.4936, 29.4241],
-                [-71.516, 46.437],
-                [-71.516, 37.936],
-                [-98.4936, 29.4241]
+                [-104.8984452, 38.875868 ],
+                [-90.393898, 38.875868 ],
+                [-90.393898, 24.838930],
+                [-104.8984452, 24.838930]
             ]
         });
         map.addLayer({
@@ -61,15 +123,22 @@ $(document).ready(function(){
         setInterval(function() {
             currentImage = (currentImage + 1) % frameCount;
             map.getSource("radar").updateImage({ url: getPath() });
-        }, 200);
+        }, 1000);
     });
+
+
 
     var geocoder = new MapboxGeocoder({ // Initialize the geocoder
         accessToken: mapboxgl.accessToken, // Set the access token
         mapboxgl: mapboxgl, // Set the mapbox-gl instance
-        marker: false // Do not use the default marker style
+        marker: // Do not use the default marker style
+            {
+                draggable: true
+            }
 
     });
+
+
 
 
 
@@ -78,12 +147,6 @@ $(document).ready(function(){
         var geoLat =  ev.result.geometry.coordinates[1];
         var geoLong = ev.result.geometry.coordinates[0];
         console.log(geoLat, geoLong);
-
-        var marker = new mapboxgl.Marker() // Initialize a new marker
-        .setLngLat([geoLong, geoLat]) // Marker [lng, lat] coordinates
-        .addTo(map); // Add the marker to the map
-
-
 
 
         function posts (data) {
@@ -109,14 +172,20 @@ $(document).ready(function(){
             }
             var html = "";
             var i = 0;
-                for (i = 0; i <= 2; i++) {
-                    html += '<div class="weather card col s4">';
+                for (i = 0; i <= 4; i++) {
+                    html += '<div class="weather card mx-4 my-3">';
+                    html += '<div class="card-header">';
                     html += '<h4> Date:' + (new Date(data.daily.data[i].time * 1000).getMonth() + 1) + '/' + (new Date(data.daily.data[i].time * 1000)).getDate() + '/' + new Date(data.daily.data[i].time * 1000).getFullYear() + '</h4>';
-                    html += '<h3>' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
-                    html += '<h5>' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';
-                    html += '<h5>Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h5>';
-                    html += '<img class="responsive-img" src="' + findImage(weatherArray) + '">';
-                    html += '</div>'
+                    html += '</div>';
+                    html += '<div class="card-body" id="daily">';
+                    html += '<h3 class = "card-title">' + (Math.round(data.daily.data[i].temperatureMax)) + "/" + (Math.round(data.daily.data[i].temperatureMin)) + '</h3>';
+                    html += '<h5 class = "card-text">' + Math.round((data.daily.data[i].precipProbability) * 100) + '% chance of ' + data.daily.data[i].precipType + '</h5>';
+                    html += '<h5 class = "card-text">Winds at ' + Math.round(data.daily.data[i].windSpeed) + ' MPH </h5>';
+                    html += '<div class="text-center">';
+                    html += '<img class="img-fluid" src="' + findImage(weatherArray) + '" alt="icon">';
+                    html += '</div>';
+                    html += '</div>';
+                    html += '</div>';
                 }
                 return html
         }
@@ -142,6 +211,7 @@ $(document).ready(function(){
                 console.log( "finished" );
             });
     });
+
 
 
 
@@ -179,35 +249,15 @@ $(document).ready(function(){
             var geoLat =  ev.result.geometry.coordinates[1];
             var geoLong = ev.result.geometry.coordinates[0];
         });
-    })
+    });
 
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = 'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+    }
 
-//    --WEATHER--
-
-    // function updatePage(){
-    //     var jqxhr = $.getJSON(("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/29.4241,-98.4936"), function(){
-    //         console.log( "success" );
-    //     });
-    //     jqxhr.done(function() {
-    //         console.log(jqxhr);
-    //     })
-    //         .fail(function() {
-    //             alert( "error" );
-    //         })
-    //         .always(function() {
-    //             console.log( "finished" );
-    //         });
-    // }
-    //
-    // updatePage();
-
-
-
-
-
-
-
-
+    marker.on('dragend', onDragEnd);
 
 
 
