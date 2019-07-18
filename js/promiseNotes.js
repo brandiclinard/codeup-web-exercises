@@ -210,7 +210,7 @@ fetch('https://api.github.com/users')
     .then(response => response.json())
     .then(usersArray => {// HAVE TO USE SECOND .THEN IN ORDER TO ACCOMPLISH AFTER THE RESPONSE WITH JSON HAS RETURNED
         for(let user of usersArray){
-            console.log(user.login, user.html_url)
+            console.log(user.login)
         }
     });
 
