@@ -2,5 +2,5 @@
 .idea/*
 *.iml
 
-js/keys.js
+**tokens.js
 
