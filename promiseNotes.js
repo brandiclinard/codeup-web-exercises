@@ -184,7 +184,60 @@
 // .done(data => console.log(data.joke))
 // })
 
-//FETCH-- REJECT/RESOLVE BUILT INTO IT
-let apiResponse = fetch("https://api.chucknorris.io/jokes/random")
-.then(response => response.json())
-.then(data => console.log(data.value));
+// //FETCH-- REJECT/RESOLVE BUILT INTO IT
+// let apiResponse = fetch("https://api.chucknorris.io/jokes/random")
+// .then(response => response.json())
+// .then(data => console.log(data.value));
+
+// http://www.omdbapi.com/?i=tt3896198&apikey=d60b1c83
+// http://www.omdbapi.com/?apikey=[yourkey]&
+
+// omdbToken = 'd60b1c83';
+//
+// let omdb = fetch(`http://www.omdbapi.com/?apikey=${omdbToken}&`)
+// .then(response => response.json())
+// .then(data => console.log(data.value));
+
+// //MORNING PUSH UPS:
+//
+// let timer = 0;
+//
+// const clock = setInterval(() => {
+//         console.log(++timer)
+//     },10);
+//
+// // const url = 'https://pokeapi.co/api/v2';
+// const url = 'https://swapi.co/api/';
+//
+// let response = fetch(url)
+// .then(()=> {
+//         console.log('Done!');
+//         clearInterval(clock);
+//     }
+// );
+
+if (true) {
+    let x = 5;
+}
+console.log(typeof x);
+
+// let numbers = [1, 2, 3, 4, 5];
+// numbers.map(n => n * 3)
+// console.log(numbers);
+
+const isDivisibleBy3 = n => n % 3 === 0;
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+console.log(numbers.filter(isDivisibleBy3));
+console.log(numbers);
+
+const p = new Promise((resolve, reject) => {
+return 3
+});
+
+p.then(result => console.log(result));
+p.catch(error => console.log('An error occured!'));
+
+const sayHello = (name) => { 'Hello, ' + name + '!' };
+sayHello(name);
