@@ -26,7 +26,7 @@
 // });
 //
 // console.log(myPromise); // a pending promise
-//
+
 // myPromise.then((data) => console.log(`resolved: ${data}`));
 // myPromise.catch((data) => console.log(`rejected: ${data}`));
 //
